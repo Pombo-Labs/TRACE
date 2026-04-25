@@ -1,0 +1,155 @@
+# Per-pattern recommendation template pools — TRACE v1
+# Sampled by the generator to compose the "Programming Recommendations" section.
+# Each pattern has bullets grouped under BIP-shaped sub-sections:
+#   antecedent / replacement / consequence / crisis
+# Replacement and crisis sections only appear when target behaviors are in the log.
+#
+# Crisis-plan bullets are grounded in:
+# - BACB Ethics Code for Behavior Analysts (2020), Section 3.05 (restrictive
+#   procedures) and Section 2.13 (referrals / coordination of services)
+# - ABAI Position Statement on Restraint and Seclusion (2010)
+# - Widely-used facility crisis-prevention training frameworks as examples only
+#   (Safety-Care, CPI, PMT, Therapeutic Crisis Intervention)
+# Procedure specifics are intentionally left to the facility's training program
+# because restraint / seclusion protocols vary by jurisdiction, training
+# certification, and facility policy.
+
+patterns:
+  mastery_progression:
+    antecedent:
+      - "Continue current teaching procedure — it is effective for this learner."
+      - "Maintain current stimulus arrangement; begin planning next skill in sequence."
+    replacement: []
+    consequence:
+      - "Begin thinning reinforcement from CRF to FR-2 as accuracy stabilizes above 85%."
+      - "Continue differential reinforcement for independent responses."
+    crisis: []
+
+  regression:
+    antecedent:
+      - "Conduct reinforcer assessment to identify current high-preference items."
+      - "Review recent environmental or schedule changes that may be affecting performance."
+      - "Return temporarily to a previously-mastered prompt level and re-fade systematically."
+    replacement:
+      - "If problem behavior accompanies regression, strengthen replacement-behavior training for the hypothesized function."
+    consequence:
+      - "Increase reinforcement magnitude and schedule temporarily (return to CRF if needed)."
+      - "Implement more frequent maintenance probes (at least weekly) after re-mastery."
+    crisis:
+      - "If regression co-occurs with severe behavior (SIB, aggression, property destruction) reaching the learner's safety threshold: pause all skill-acquisition programming, implement environmental safety measures (clear the area of hazards, move peers to safe distance), and contact the supervising BCBA."
+      - "Staff should first attempt verbal de-escalation and least-restrictive strategies; physical intervention is used only as a last resort and only by staff currently certified in the facility's crisis-prevention framework (e.g., Safety-Care, CPI, or equivalent)."
+      - "Physical intervention is applied only when specifically authorized in this learner's BIP. Many learners have contraindications (medical conditions, developmental or age-related factors, trauma history, or explicit BIP restrictions) that rule out restrictive procedures — in those cases the crisis plan defaults to verbal de-escalation, environmental safety measures, and immediate supervisor / emergency contact without physical intervention."
+      - "Document the incident per facility and BACB (Ethics Code 2020, Section 3.05) requirements within 24 hours; conduct post-incident debrief with all staff involved before resuming programming."
+
+  plateau:
+    antecedent:
+      - "Modify teaching procedure — switch prompt type (e.g., from most-to-least to time delay)."
+      - "Conduct preference assessment and update reinforcer menu."
+      - "Break the current skill into smaller component steps if possible."
+      - "Increase practice opportunities by embedding targets in natural-environment training."
+    replacement: []
+    consequence:
+      - "Check for inadvertent reinforcement of near-misses; tighten differential reinforcement."
+    crisis: []
+
+  frustration_pattern:
+    antecedent:
+      - "**Immediately** reduce task difficulty — drop back 1–2 prompt levels or present previously-mastered targets."
+      - "Intersperse easy (mastered) tasks with acquisition targets at a 3:1 or 4:1 ratio."
+      - "Shorten session length and increase break frequency."
+    replacement:
+      - "Teach a replacement response ('break please', 'wait please', 'all done') and reinforce it at the function of the problem behavior."
+      - "Pair the replacement response with short, predictable escape windows."
+    consequence:
+      - "Do NOT remove demand contingent on tantrum / escape behavior — this reinforces the escape function."
+      - "Provide brief break contingent on independent replacement response instead."
+    crisis:
+      - "If aggression toward staff, peer aggression, SIB, or property destruction exceeds the learner's safety threshold: first use verbal de-escalation and environmental safety measures (clear the area, move peers to safe distance, remove hazards)."
+      - "If behavior continues to pose imminent risk, follow the facility's tiered crisis-intervention protocol — only staff currently certified in the facility's training (e.g., Safety-Care, CPI, PMT, or equivalent) may implement physical intervention, and the least-restrictive option appropriate to the risk level is used. Physical intervention is applied only when specifically authorized in this learner's BIP; for learners with contraindications (medical, developmental, trauma history, or explicit BIP restrictions), the plan stops at de-escalation + environmental safety + supervisor contact."
+      - "Notify the supervising BCBA immediately; pause the skill-acquisition program until the BIP is reviewed. Document the incident (antecedent, topography, duration, staff response, post-incident state) per facility and BACB Ethics Code (2020, Section 3.05) requirements."
+      - "Conduct a post-incident debrief with all staff involved to review what worked, what did not, and whether the BIP needs revision."
+
+  variable_performance:
+    antecedent:
+      - "Check for environmental variables that differ across sessions (time of day, therapist, setting)."
+      - "Standardize session structure and reinforcement delivery across therapists."
+    replacement: []
+    consequence:
+      - "Implement inter-observer agreement probes to rule out measurement inconsistency."
+    crisis: []
+
+  prompt_dependency:
+    antecedent:
+      - "Switch to a time-delay procedure (0s -> 2s -> 4s -> 6s) to encourage independent responding."
+      - "Avoid inadvertent prompt delivery (therapist gaze, body positioning) that may function as a prompt."
+    replacement: []
+    consequence:
+      - "Ensure differential reinforcement — independent responses receive higher-quality reinforcement than prompted responses."
+      - "Consider stimulus fading instead of response prompting for this skill."
+    crisis: []
+
+  rapid_acquisition:
+    antecedent:
+      - "Advance to next skill in the sequence immediately."
+      - "Begin generalization probes across people, settings, and materials."
+    replacement: []
+    consequence:
+      - "Move to maintenance schedule (probe monthly) and redirect session time to acquisition targets."
+    crisis: []
+
+  generalization_failure:
+    antecedent:
+      - "Implement structured generalization training: vary therapists, settings, and materials systematically."
+      - "Use multiple-exemplar training — teach with 3–5 different stimulus sets."
+      - "Program common stimuli across training and generalization settings."
+    replacement: []
+    consequence:
+      - "Consider natural-environment training (NET) to supplement DTT for this skill."
+    crisis: []
+
+  extinction_burst:
+    antecedent:
+      - "Maintain current antecedent arrangements — do not add extra demand."
+    replacement:
+      - "Ensure replacement response is available and reinforced at high magnitude during the burst."
+    consequence:
+      - "**Maintain current protocol** — consistency during extinction bursts is critical."
+      - "Ensure all team members are trained on the procedure."
+    crisis:
+      - "If problem-behavior intensity or topography exceeds the learner's baseline safety threshold (SIB causing tissue damage, aggression causing injury, imminent elopement into hazard): pause the extinction procedure and implement the facility's tiered crisis-prevention protocol (e.g., Safety-Care, CPI, or equivalent)."
+      - "De-escalation and environmental safety first; physical intervention is last resort and only by staff currently certified in the facility's framework. Least-restrictive option appropriate to the risk level applies at every step. Physical intervention is used only when specifically authorized for this learner in the BIP — contraindications (medical, developmental, trauma history) may restrict the procedures available, in which case the plan is de-escalation + environmental safety + supervisor contact only."
+      - "Contact the supervising BCBA immediately; do not resume the extinction procedure without BCBA review. Document duration, intensity, antecedent, staff response, and post-incident state."
+      - "Conduct a post-incident debrief with staff. If the burst exceeds the BIP's anticipated duration or intensity, the BIP should be re-reviewed before resuming."
+
+  skill_loss_after_break:
+    antecedent:
+      - "Implement booster sessions at the most-recently-effective prompt level."
+      - "Increase session frequency temporarily until pre-break levels are recovered."
+    replacement: []
+    consequence:
+      - "Review and strengthen the maintenance schedule to prevent future skill loss."
+      - "Consider sending practice materials home during extended breaks."
+    crisis: []
+
+  motivating_operation_shift:
+    antecedent:
+      - "Conduct preference assessment to identify a currently-valued reinforcer."
+      - "Program MO-establishing operations (deprivation for target reinforcer) before teaching sessions."
+      - "Rotate reinforcers to prevent satiation."
+    replacement: []
+    consequence:
+      - "Adjust reinforcement density to match current MO level."
+    crisis: []
+
+  setting_event_trigger:
+    antecedent:
+      - "Identify and document the setting event (sleep, illness, schedule change, medication)."
+      - "Modify programming demand on days when setting event is present."
+      - "Coordinate with caregivers / medical team on setting-event factors outside the program."
+    replacement: []
+    consequence:
+      - "Track setting events alongside performance data to quantify their effect."
+    crisis:
+      - "If the setting event involves a medical concern (seizure-like activity, injury, illness): stop the program immediately, follow the facility's medical-incident protocol, and refer to the appropriate medical professional. Medical events are NOT behavioral targets and must not be treated as ABA programming issues."
+      - "If behavior escalates during the setting-event window: use verbal de-escalation and environmental safety first; do not add demand. Only staff currently certified in the facility's crisis-prevention framework may use physical intervention, and only if imminent safety risk warrants it AND the learner's BIP specifically authorizes it (contraindications and BIP restrictions may rule it out)."
+      - "Coordinate with caregivers, the medical team, and the supervising BCBA; document the setting event and the associated behavior for pattern analysis. Review the BIP in light of the setting-event data."

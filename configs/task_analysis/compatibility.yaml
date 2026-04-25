@@ -1,0 +1,38 @@
+# Task Analysis clinical-consistency rules — TRACE v1
+
+# Module -> typical learner profiles (some modules only fit older learners)
+module_to_learner_profiles:
+  basic_living: [school_age, adolescent, adult]
+  home: [adolescent, adult]
+  community: [adolescent, adult]
+  vocational: [adolescent, adult]
+  independent_living: [adult]
+
+# Mastery state -> acceptable reinforcement schedules (chaining-specific)
+mastery_to_reinforcement:
+  emerging: [crf_per_step]
+  developing: [crf_per_step]
+  approaching: [crf_per_step, differential_per_step]
+  near: [differential_per_step, token_economy]
+  mastered: [terminal_reinforcement, token_economy]
+  generalization: [terminal_reinforcement]
+
+# Chain type tends to follow skill preference; fallback is total_task
+use_preferred_chain_type_probability: 0.75
+
+# Sampling across modules (weighted toward typical clinical frequency)
+module_sampling_weights:
+  basic_living: 0.35
+  home: 0.20
+  community: 0.15
+  vocational: 0.15
+  independent_living: 0.15
+
+# Prompt strategy bias by mastery state
+mastery_to_prompt_strategies:
+  emerging: [graduated_guidance, most_to_least]
+  developing: [graduated_guidance, most_to_least]
+  approaching: [most_to_least, least_to_most]
+  near: [least_to_most]
+  mastered: [least_to_most]
+  generalization: [least_to_most]

@@ -1,0 +1,91 @@
+# Toleration / Systematic-Desensitization program template — TRACE v1
+# Used for skills where the goal is NOT learner independence but rather the
+# learner *allowing* caregiver/staff to perform the activity, with duration
+# shaped incrementally across trials.
+
+template_id: task1_toleration_v1
+task_type: teaching_program
+method_id: task_analysis     # Administratively in the task_analysis area; clinically distinct approach
+
+system_prompt: |
+  You are an expert ABA (Applied Behavior Analysis) clinical assistant. You help
+  Board Certified Behavior Analysts and staff design teaching programs for
+  individuals with autism. Your responses are clinically accurate, individualized
+  to the learner profile, follow BACB ethical guidelines, and reference no real
+  client data. Select the appropriate teaching method (DTT, NET, Task Analysis,
+  FCT, BST, PRT) based on the skill target and learner profile.
+
+user_variants:
+  - |
+    Generate a teaching program for the following target.
+
+    Skill Target: {skill_target}
+    Curriculum Reference: {curriculum_ref}
+    Learner Profile: {learner_profile_name}
+    Current Mastery: {mastery_state_name}
+    Teaching Method: Toleration / Systematic Desensitization
+
+    The goal is for the learner to allow the activity to be performed (not to perform it independently). Provide the full program structure including shaping steps and refusal/safety procedures.
+
+  - |
+    I need a toleration program for this self-care / medical / caregiver-delivered skill.
+
+    Target: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner: {learner_profile_name}
+    Mastery Status: {mastery_state_name}
+
+    Please include the toleration end goal, shaping progression, antecedent strategies, reinforcement plan, refusal / safety procedures, and mastery criteria.
+
+  - |
+    Design a systematic desensitization / toleration program for the following.
+
+    Skill: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner Level: {learner_profile_name}
+    Baseline: {mastery_state_name}
+
+    The learner currently refuses or exhibits safety behaviors during the activity; the program should build tolerance gradually.
+
+assistant_template: |
+  ## Program Overview
+  - Target skill: {skill_target}
+  - Curriculum: {curriculum_ref}
+  - Learner: {learner_profile_name}
+  - Current mastery: {mastery_state_name}
+  - Approach: Toleration / systematic desensitization (caregiver-delivered activity)
+
+  This program builds tolerance for {target_activity} through systematic shaping. The learner is not being taught to perform the skill independently — the goal is to allow the caregiver or staff to perform it across an incrementally increasing duration, without refusal, crying, self-injurious behavior, or aggression.
+
+  ## Toleration End Goal
+  {end_goal_description}
+
+  ## Shaping Progression
+  Teach by moving through these shaping steps in order. Advance to the next step only when the current step is tolerated for 3 consecutive sessions without safety behaviors.
+
+  {shaping_step_list}
+
+  Current shaping step: At the {mastery_state_short} stage, {current_step_guidance}
+
+  ## Antecedent Strategies
+  - Pre-warn the learner before the activity begins (verbal or visual schedule).
+  - Offer a preferred item or sensory tool to hold during the activity.
+  - Where possible, offer a choice of position, location, or starting point.
+  - Keep the environment calm and predictable; avoid other demands immediately before or after.
+
+  ## Reinforcement
+  Deliver high-magnitude, high-preference reinforcement contingent on successful toleration of the target duration. Pair with effusive praise. Reinforcement is continuous (CRF) during acquisition of each shaping step.
+
+  ## Refusal and Safety Procedures
+  - If the learner refuses or turns away: pause briefly (5–10 seconds), re-present the activity at the current or previous shaping step.
+  - If problem behavior (crying, property destruction, SIB, aggression, peer aggression) emerges: stop the activity immediately, implement the facility crisis plan, and document the incident.
+  - Do NOT remove the activity contingent on safety behaviors in a way that establishes an escape-maintained pattern — consult supervising BCBA for the specific escape-extinction protocol appropriate to this learner.
+
+  ## Mastery Criteria
+  {mastery_criterion_text}
+
+  ## Data Collection
+  Per-trial: duration tolerated before refusal, presence / absence of safety behaviors (crying, property destruction, SIB, aggression), staff support level, and shaping step attempted. IOA scheduled every {ioa_frequency} sessions minimum; target agreement ≥ 80%.
+
+  ## Generalization & Maintenance Plan
+  Post-mastery: probe the full routine across {n_generalization_settings} different settings and with {n_generalization_therapists} different adults (including the primary caregiver if relevant). Maintenance probes weekly for 4 weeks, then monthly.

@@ -1,0 +1,51 @@
+# NET clinical-consistency rules — TRACE v1
+
+# VB-MAPP level -> compatible learner profiles
+level_to_learner_profiles:
+  L1: [early]
+  L2: [early, school_age]
+  L3: [school_age, adolescent]
+
+# Sampling weights for level selection
+# NET is used at all levels but slightly biased toward L2/L3 where mands grow
+level_sampling_weights:
+  L1: 0.30
+  L2: 0.40
+  L3: 0.30
+
+# Skill keyword -> MO category mapping
+# Used to select the appropriate MO arrangement for a sampled skill.
+skill_to_mo_category:
+  - keywords: [mand, item, preferred, 2-word]
+    category: mand_item
+  - keywords: [missing]
+    category: mand_missing
+  - keywords: [help]
+    category: mand_help
+  - keywords: [break]
+    category: mand_break
+  - keywords: ["all done", finished, completion]
+    category: mand_completion
+  - keywords: ["what"]
+    category: mand_info_what
+  - keywords: ["where"]
+    category: mand_info_where
+  - keywords: [attention, peers]
+    category: mand_attention
+  - keywords: [action]
+    category: mand_action
+  - keywords: [greet]
+    category: spontaneous_greeting
+  - keywords: [comment, describe, narrate, story]
+    category: spontaneous_comment
+  - keywords: [conversation, reciprocal, multi-turn]
+    category: intraverbal_multi_turn
+  - keywords: [turn-taking, turn]
+    category: social_turn_taking
+  - keywords: [initiate, peer]
+    category: social_initiation
+  - keywords: [routine]
+    category: intraverbal_routine
+
+# Default category when no keyword matches
+default_mo_category: mand_item

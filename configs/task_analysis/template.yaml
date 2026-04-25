@@ -1,0 +1,82 @@
+# Task Analysis teaching program template — TRACE v1
+
+template_id: task1_task_analysis_v1
+task_type: teaching_program
+method_id: task_analysis
+
+system_prompt: |
+  You are an expert ABA (Applied Behavior Analysis) clinical assistant. You help
+  Board Certified Behavior Analysts and staff design teaching programs for
+  individuals with autism. Your responses are clinically accurate, individualized
+  to the learner profile, follow BACB ethical guidelines, and reference no real
+  client data. Select the appropriate teaching method (DTT, NET, Task Analysis,
+  FCT, BST, PRT) based on the skill target and learner profile.
+
+user_variants:
+  - |
+    Generate a teaching program for the following target.
+
+    Skill Target: {skill_target}
+    Curriculum Reference: {curriculum_ref}
+    Learner Profile: {learner_profile_name}
+    Current Mastery: {mastery_state_name}
+    Teaching Method: Task Analysis / Chaining
+
+    Provide the full program structure appropriate to the selected method.
+
+  - |
+    I need a Task Analysis program for this multi-step skill.
+
+    Target: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner: {learner_profile_name}
+    Mastery Status: {mastery_state_name}
+
+    Please include the task analysis (numbered steps), chain type, prompt strategy per step, error correction, reinforcement, and mastery criteria.
+
+  - |
+    Design a chaining program for the following.
+
+    Skill: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner Level: {learner_profile_name}
+    Baseline: {mastery_state_name}
+
+    Include the full Task Analysis structure.
+
+assistant_template: |
+  ## Program Overview
+  - Target skill: {skill_target}
+  - Curriculum: {curriculum_ref}
+  - Learner: {learner_profile_name}
+  - Current mastery: {mastery_state_name}
+
+  This Task Analysis program teaches the target skill as a chain of discrete steps, each taught and reinforced until the learner can complete the full sequence independently.
+
+  ## Task Analysis
+  Chain type: {chain_type_name}
+  {chain_type_description}
+
+  Steps:
+  {step_list}
+
+  ## Prompt Strategy Per Step
+  Strategy: {prompt_strategy_name}
+  {prompt_strategy_description}
+  Current prompt level: At the {mastery_state_short} stage, {current_prompt_guidance}
+
+  ## Error Correction Procedure
+  {error_correction_name}: {error_correction_steps}
+
+  ## Reinforcement
+  {reinforcement_schedule_name} — {reinforcement_description}.
+  Pair the terminal reinforcer with the natural consequence of the completed task (e.g., clean hands, clean dishes, completed routine).
+
+  ## Mastery Criteria
+  {mastery_criterion_text}
+
+  ## Data Collection
+  Per-step data: each step is scored for independence / prompt level on every trial. IOA scheduled every {ioa_frequency} sessions minimum; target agreement ≥ 80%.
+
+  ## Generalization & Maintenance Plan
+  Post-mastery: probe the full chain across {n_generalization_settings} different settings and with {n_generalization_therapists} different adults. Maintenance probes weekly for 4 weeks, then monthly.

@@ -1,0 +1,68 @@
+# Session Interpretation template — TRACE v1
+# Task 2 — given a multi-session behavioral log, produce structured interpretation.
+
+template_id: task2_session_interp_v1
+task_type: session_interpretation
+
+system_prompt: |
+  You are an expert ABA (Applied Behavior Analysis) clinical assistant. You
+  analyze multi-session behavioral session logs for individuals with autism and
+  produce structured clinical interpretations that identify patterns, hypothesize
+  behavior functions when applicable, and recommend programming adjustments
+  structured along BIP lines (antecedent strategies, replacement behaviors,
+  consequence strategies, crisis plan). Your interpretation also includes an
+  escalation level and a confidence expression. Every recommendation is grounded
+  in the data provided. Follow BACB ethical guidelines and reference no real
+  client data.
+
+# User message variants — one is sampled per example to vary phrasing
+user_variants:
+  - |
+    Interpret the following behavioral session log. Provide clinical concerns, pattern classification, behavior function hypothesis (if applicable), programming recommendations (antecedent / replacement / consequence / crisis), escalation level, confidence, and data-supported rationale.
+
+    {session_log}
+
+  - |
+    Review this session log and produce a structured clinical interpretation.
+
+    {session_log}
+
+    Please include: (1) clinical concerns, (2) pattern classification, (3) function hypothesis for any target behaviors, (4) recommendations structured as antecedent / replacement / consequence / crisis, (5) escalation level and confidence, (6) data-supported rationale.
+
+  - |
+    Here is a multi-session behavioral log for a learner. Analyze it and provide your clinical interpretation using the structured format.
+
+    {session_log}
+
+# Assistant template — filled section-by-section by the generator.
+# Conditional sections (function hypothesis, replacement, crisis plan) are
+# pre-computed by the generator as strings, possibly empty.
+assistant_template: |
+  ## Clinical Concerns
+  {clinical_concerns_bullets}
+
+  ## Pattern Classification
+  {pattern_class}
+
+  {pattern_explanation}
+  {function_hypothesis_section}
+  ## Programming Recommendations
+
+  ### Antecedent strategies
+  {antecedent_bullets}
+  {replacement_section}
+  ### Consequence strategies
+  {consequence_bullets}
+  {crisis_section}
+  ## Escalation Level
+  {escalation_level} — {escalation_label}
+
+  {escalation_justification}
+
+  ## Confidence
+  {confidence_level}
+
+  {confidence_justification}
+
+  ## Data-Supported Rationale
+  {rationale_bullets}

@@ -1,0 +1,44 @@
+# TRACE data generation config
+# Controls per-area example counts, split ratios, and the global seed.
+
+seed: 42
+output_dir: data/splits
+
+# Per-area generation counts and enabled flags.
+# Total target: ~3,500 examples (train + valid + curation-pool sums).
+areas:
+  dtt:
+    enabled: true
+    n: 800
+    description: "DTT teaching programs — array-based discrete-response skills."
+  net:
+    enabled: true
+    n: 500
+    description: "NET teaching programs — motivation-based naturalistic teaching."
+  task_analysis:
+    enabled: true
+    n: 500
+    description: "Task Analysis / Chaining — multi-step routines (AFLS)."
+  fct:
+    enabled: false
+    n: 300
+    description: "FCT — replacement-behavior programs paired with deceleration targets."
+  bst:
+    enabled: false
+    n: 200
+    description: "BST — staff-facing training programs."
+  prt:
+    enabled: false
+    n: 300
+    description: "PRT — pivotal-behavior programs."
+  session_interpretation:
+    enabled: true
+    n: 1200
+    description: "Task 2 — behavioral session interpretation (paper's innovation task)."
+
+# Split ratios applied after all enabled areas generate
+# test + sanity are NOT generated here — they're curated by the user from curation_pool
+splits:
+  train: 0.85
+  valid: 0.05
+  curation_pool: 0.10    # user reviews this pool and curates test.jsonl + sanity.jsonl

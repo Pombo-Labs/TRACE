@@ -1,0 +1,137 @@
+# Per-pattern trajectory rules — TRACE v1
+# Parameters that drive per-session accuracy and behavior-frequency generation.
+# Each pattern ID matches configs/session_interpretation/taxonomy.yaml.
+#
+# Interpretation of fields:
+#   base_range: uniform-sample initial accuracy
+#   delta_per_session_range: per-session delta applied cumulatively
+#   noise: uniform ±noise added per session
+#   behavior_trajectory: how target-behavior frequencies evolve (optional)
+#     "stable_low" / "ascending" / "descending" / "spike" / etc.
+
+rules:
+  mastery_progression:
+    accuracy:
+      base_range: [0.30, 0.50]
+      delta_per_session_range: [0.04, 0.08]
+      noise: 0.05
+      cap: 0.95
+    behavior_trajectory: stable_low
+
+  regression:
+    accuracy:
+      base_range: [0.70, 0.85]
+      delta_per_session_range: [-0.08, -0.04]
+      noise: 0.05
+      floor: 0.10
+    behavior_trajectory: ascending_moderate
+
+  plateau:
+    accuracy:
+      base_range: [0.45, 0.65]
+      delta_per_session_range: [-0.02, 0.02]
+      noise: 0.08
+    behavior_trajectory: stable_low
+
+  frustration_pattern:
+    accuracy:
+      base_range: [0.70, 0.85]
+      delta_per_session_range: [-0.08, -0.04]
+      noise: 0.05
+      floor: 0.10
+    behavior_trajectory: ascending_strong
+    behavioral_indicators: frustration
+
+  variable_performance:
+    accuracy:
+      base_range: [0.40, 0.70]
+      delta_per_session_range: [0.0, 0.0]
+      noise: 0.20
+    behavior_trajectory: variable
+
+  prompt_dependency:
+    accuracy:
+      base_range: [0.75, 0.95]      # high but prompted
+      delta_per_session_range: [-0.02, 0.02]
+      noise: 0.04
+    behavior_trajectory: stable_low
+    prompted_share: [0.70, 0.90]      # share of trials that are prompted (not independent)
+
+  rapid_acquisition:
+    accuracy:
+      base_range: [0.20, 0.40]
+      delta_per_session_range: [0.08, 0.12]
+      noise: 0.03
+      cap: 0.97
+    behavior_trajectory: stable_low
+
+  generalization_failure:
+    accuracy:
+      alternating:
+        training_range: [0.75, 0.90]
+        novel_range: [0.25, 0.45]
+        noise: 0.05
+    behavior_trajectory: stable_low
+
+  extinction_burst:
+    accuracy:
+      base_range: [0.50, 0.70]
+      delta_per_session_range: [0.0, 0.03]
+      noise: 0.05
+    behavior_trajectory: temporary_spike
+    burst_start_fraction: 0.33         # spike starts ~1/3 through log
+    burst_duration_sessions: 2
+    burst_magnitude: [2.0, 3.5]        # multiplier on baseline frequency
+
+  skill_loss_after_break:
+    accuracy:
+      base_range: [0.70, 0.85]
+      initial_drop: [0.25, 0.40]
+      recovery_per_session_range: [0.05, 0.10]
+      noise: 0.03
+    behavior_trajectory: stable_low
+
+  motivating_operation_shift:
+    accuracy:
+      base_range: [0.70, 0.85]
+      mo_dip_sessions: [2, 4]          # how many consecutive sessions show the dip
+      mo_dip_magnitude: [0.25, 0.40]   # drop depth
+      recovery_per_session_range: [0.05, 0.08]
+      noise: 0.04
+    behavior_trajectory: stable_low
+
+  setting_event_trigger:
+    accuracy:
+      base_range: [0.55, 0.75]
+      setting_event_session_fraction: 0.40   # where the setting event hits
+      setting_event_magnitude: [0.20, 0.35]
+      recovery_per_session_range: [0.04, 0.08]
+      noise: 0.05
+    behavior_trajectory: coincident_spike
+
+# Behavior-trajectory shorthand -> what it produces for frequency per session
+behavior_trajectory_library:
+  stable_low:
+    base_freq_range: [0, 3]
+    delta_per_session: 0.0
+    noise: 1.0
+  ascending_moderate:
+    base_freq_range: [1, 3]
+    delta_per_session: 0.3
+    noise: 1.0
+  ascending_strong:
+    base_freq_range: [1, 3]
+    delta_per_session: 0.6
+    noise: 1.0
+  variable:
+    base_freq_range: [1, 5]
+    delta_per_session: 0.0
+    noise: 3.0
+  temporary_spike:
+    base_freq_range: [1, 3]
+    spike_multiplier_range: [2.5, 4.0]
+    noise: 1.0
+  coincident_spike:
+    base_freq_range: [1, 3]
+    spike_multiplier_range: [2.0, 3.5]
+    noise: 1.0

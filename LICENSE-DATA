@@ -1,0 +1,38 @@
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+
+Copyright (c) 2026 Pombo Labs
+
+The dataset files in `data/splits/` (train.jsonl, valid.jsonl, test.jsonl,
+sanity.jsonl) — and any derivative dataset produced by running the generator
+code in this repository — are licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License.
+
+You are free to:
+  - Share   — copy and redistribute the material in any medium or format
+  - Adapt   — remix, transform, and build upon the material
+
+Under the following terms:
+  - Attribution — You must give appropriate credit, provide a link to the
+                  license, and indicate if changes were made.
+  - NonCommercial — You may not use the material for commercial purposes.
+
+Attribution should include:
+  - The dataset name (TRACE) and version (v1)
+  - Author: Kahunla, F.
+  - Publisher: Pombo Labs
+  - The repository URL: https://github.com/Pombo-Labs/TRACE
+
+No warranty is given. TRACE is a research artifact and has not been
+clinically validated. It is not a clinical tool. Any use of the dataset,
+or any model derived from it, in a clinical setting is at the sole
+responsibility of the user and their facility. The authors and Pombo Labs
+make no representation of clinical suitability and accept no liability for
+clinical outcomes.
+
+Full license text:
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Human-readable summary:
+https://creativecommons.org/licenses/by-nc/4.0/
+
+SPDX-License-Identifier: CC-BY-NC-4.0

@@ -1,0 +1,46 @@
+# Canonical prompt types — TRACE shared taxonomy
+# Citation: Cooper, Heron, & Heward (2020), Ch. 21 ("Prompting and Fading").
+#
+# Used across any teaching method that has a prompt hierarchy (DTT, Task Analysis, etc.).
+# Each method's own taxonomy references these by id.
+
+prompt_types:
+  - id: full_physical
+    short: FP
+    name: Full physical
+    description: "Hand-over-hand / complete manual guidance through the movement."
+
+  - id: partial_physical
+    short: PP
+    name: Partial physical
+    description: "Light guidance at a distal body part (elbow, shoulder)."
+
+  - id: model
+    short: M
+    name: Modeling
+    description: "Demonstrate the response; learner copies."
+
+  - id: gestural
+    short: G
+    name: Gestural
+    description: "Pointing or indicating without physical contact."
+
+  - id: verbal
+    short: V
+    name: Verbal
+    description: "Spoken hint or instruction."
+
+  - id: positional
+    short: Pos
+    name: Positional
+    description: "Target stimulus arranged closer to learner or more prominent."
+
+  - id: visual
+    short: Vis
+    name: Visual
+    description: "Pictures, arrows, written cues placed for learner to see."
+
+  - id: independent
+    short: I
+    name: Independent
+    description: "No prompt; learner responds without assistance."

@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use TRACE in your research, please cite it as below."
+title: "TRACE: Taxonomy-Referenced ABA Clinical Examples"
+abstract: >
+  A 2,999-example synthetic instruction-tuning dataset for two clinical tasks
+  in Applied Behavior Analysis — teaching-program generation (DTT, NET,
+  Task Analysis) and multi-session behavioral interpretation (12 trajectory
+  patterns, 13 target behaviors). Every example is generated from a taxonomy
+  grounded in the canonical ABA literature and carries full sampling
+  provenance.
+authors:
+  - family-names: Kahunla
+    given-names: Festus
+    affiliation: "Drexel University; Pombo Labs"
+date-released: 2026-04-25
+version: "1.0.0"
+license: CC-BY-NC-4.0
+repository-code: "https://github.com/Pombo-Labs/TRACE"
+url: "https://huggingface.co/datasets/PomboLabs/TRACE"
+type: dataset
+keywords:
+  - applied-behavior-analysis
+  - ABA
+  - autism
+  - clinical-NLP
+  - synthetic-data
+  - instruction-tuning
+  - small-language-model
+  - taxonomy
+  - provenance
+preferred-citation:
+  type: generic
+  title: >
+    TRACE: Taxonomy-Grounded Synthetic Data for Teaching Program Generation
+    and Session Interpretation in Applied Behavior Analysis
+  authors:
+    - family-names: Kahunla
+      given-names: Festus
+      affiliation: "Drexel University; Pombo Labs"
+  year: 2026
+  publisher:
+    name: "Pombo Labs"
+  url: "https://github.com/Pombo-Labs/TRACE"

@@ -1,0 +1,90 @@
+# Session Interpretation compatibility rules — TRACE v1
+
+# Pattern -> how many target behaviors are typically present in logs of this pattern
+pattern_behavior_count_ranges:
+  mastery_progression: [0, 1]
+  regression: [1, 2]
+  plateau: [0, 1]
+  frustration_pattern: [1, 2]
+  variable_performance: [0, 2]
+  prompt_dependency: [0, 1]
+  rapid_acquisition: [0, 0]
+  generalization_failure: [0, 1]
+  extinction_burst: [1, 2]
+  skill_loss_after_break: [0, 1]
+  motivating_operation_shift: [0, 1]
+  setting_event_trigger: [0, 2]
+
+# Pattern -> likely behavior functions when behavior is present
+pattern_function_bias:
+  frustration_pattern: [escape, escape, attention]      # escape dominant
+  extinction_burst: [escape, attention, tangible]        # depends on what's being extinguished
+  regression: [escape, attention, automatic]
+  variable_performance: [escape, attention, tangible, automatic]
+  plateau: [escape, automatic]
+  generalization_failure: [escape, attention]
+  setting_event_trigger: [escape, automatic, attention]
+  motivating_operation_shift: [tangible, automatic]
+  prompt_dependency: [attention, escape]
+  skill_loss_after_break: [escape, automatic]
+  mastery_progression: [automatic]                       # if any behavior present, likely automatic/low-stakes
+  rapid_acquisition: []                                  # no behaviors
+
+# Pattern -> behavioral indicator cluster to sample from when log includes indicators
+pattern_behavioral_indicator_cluster:
+  frustration_pattern: frustration
+  regression: frustration
+  extinction_burst: frustration
+  variable_performance: disengagement
+  plateau: disengagement
+  prompt_dependency: disengagement
+  generalization_failure: disengagement
+  setting_event_trigger: disengagement
+  motivating_operation_shift: disengagement
+  mastery_progression: engagement
+  rapid_acquisition: engagement
+  skill_loss_after_break: disengagement
+
+# Escalation rules — raise above pattern default when severe behaviors present
+# Behaviors with typical_severity "high" escalate one level (capped at 4).
+escalation_rules:
+  severe_behavior_ids: [sib, aggression, pica, elopement, fecal_smearing]
+  severe_behavior_escalation_bump: 1
+  safety_immediate_threshold_behaviors: [sib]            # SIB at high frequency triggers 4
+  safety_immediate_sib_rate_per_session: 8               # freq >= this in final 2 sessions -> escalation 4
+
+# Confidence inference rules
+confidence_rules:
+  min_sessions_for_moderate: 5
+  min_sessions_for_high: 8
+  ioa_required_for_high: true
+  variance_threshold_low: 0.25                           # if accuracy SD > this, cap at moderate
+
+# Log length by pattern
+log_length_by_pattern:
+  mastery_progression: [8, 12]
+  regression: [8, 12]
+  plateau: [8, 12]
+  frustration_pattern: [8, 12]
+  variable_performance: [8, 12]
+  prompt_dependency: [8, 12]
+  rapid_acquisition: [5, 8]
+  generalization_failure: [8, 12]
+  extinction_burst: [6, 10]
+  skill_loss_after_break: [6, 10]
+  motivating_operation_shift: [8, 12]
+  setting_event_trigger: [8, 12]
+
+# ABC and IOA presence (fractions are probabilities)
+abc_inclusion_probability: 0.3
+ioa_inclusion_probability: 0.25
+ioa_agreement_range: [0.82, 0.97]
+ioa_low_probability: 0.05                                # small chance of below-80% IOA
+ioa_low_range: [0.68, 0.79]
+
+# Sessions per log — max + min + typical duration
+session_duration_minutes_range: [30, 60]
+trials_per_program_per_session_range: [8, 15]
+
+# Sampling of programs per log
+programs_per_log_range: [3, 6]

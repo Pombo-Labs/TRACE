@@ -1,0 +1,34 @@
+# Learner profile taxonomy — TRACE v1
+# Groups learners by developmental + chronological age + curriculum scope.
+
+profiles:
+  - id: early
+    name: Early Learner
+    developmental_age: "0–48 months"
+    curricula: [vbmapp]
+    typical_vbmapp_levels: [L1, L2]
+    note: "Foundational skills; discrete + naturalistic teaching appropriate."
+
+  - id: school_age
+    name: School-Age Learner
+    developmental_age: "varies; often 24–60 months equivalent"
+    chronological_age: "6–12 years"
+    curricula: [vbmapp, afls]
+    typical_vbmapp_levels: [L2, L3]
+    typical_afls_modules: [school]
+    note: "Classroom skills + pre-academic + continuing language."
+
+  - id: adolescent
+    name: Adolescent Learner
+    chronological_age: "13–17 years"
+    curricula: [afls, vbmapp]
+    typical_vbmapp_levels: [L3]
+    typical_afls_modules: [basic_living, home, community, school, vocational]
+    note: "Functional-living + vocational focus; residual language gaps addressed."
+
+  - id: adult
+    name: Adult Learner
+    chronological_age: "18+ years"
+    curricula: [afls]
+    typical_afls_modules: [basic_living, home, community, vocational, independent_living]
+    note: "Independent-living + vocational focus; residential/day-program setting."

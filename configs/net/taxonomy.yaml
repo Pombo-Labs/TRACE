@@ -1,0 +1,230 @@
+# NET (Natural Environment Teaching) taxonomy — TRACE v1
+# Self-contained: skills + MOs + natural contexts for naturalistic teaching.
+# Citation: Hart & Risley 1975 JABA; McGee, Krantz, McClannahan 1985 JABA.
+
+method:
+  id: net
+  name: Natural Environment Teaching
+  short: NET
+  citation: "Hart, B. & Risley, T. R. (1975). JABA, 8(4), 411–420. https://doi.org/10.1901/jaba.1975.8-411; McGee, G. G., Krantz, P. J., & McClannahan, L. E. (1985). JABA, 18(1), 17–31."
+  when_to_use: >
+    Mand / requesting; generalization phase; when motivation is the limiting
+    factor; when the skill's natural occasion is ecologically predictable
+    (e.g., requesting food during snack time).
+
+# VB-MAPP domains appropriate for NET (motivation-driven skills).
+skill_domains:
+  vbmapp:
+    levels:
+      - id: L1
+        name: Level 1
+        developmental_age: "0–18 months"
+      - id: L2
+        name: Level 2
+        developmental_age: "18–30 months"
+      - id: L3
+        name: Level 3
+        developmental_age: "30–48 months"
+
+    domains:
+      - id: mand
+        name: Mand
+        gloss: Requesting
+        L1:
+          - single-word mands for preferred items
+          - mands for missing items needed to complete an activity
+          - mands for actions
+          - mands for help
+          - mands using 2-word phrases
+          - mands for a break (e.g., "break please", AAC "I need a break")
+          - mands for activity completion ("all done", "finished")
+          - mands to use the bathroom (e.g., "bathroom", "potty", "I need to go", AAC bathroom icon)
+        L2:
+          - mands for information using "what"
+          - mands for information using "where"
+          - mands using adjectives (big, little, more)
+          - mands for attention from peers
+          - mands for others to stop an action
+          - mands for a break during a non-preferred task ("break please, I need a break")
+          - mands to indicate completion of a step or activity ("all done with this one")
+        L3:
+          - mands for information using "why"
+          - mands for information using "when"
+          - mands using complete sentences with correct grammar
+          - mands for future events or items not present
+          - mands using polite social conventions
+          - mands for a break with reason ("I need a break, I'm frustrated")
+          - mands to indicate completion in context ("I'm all done with math, can I start reading?")
+
+      - id: social
+        name: Social Behavior & Social Play
+        L1:
+          - makes eye contact during interactions
+          - responds to own name
+          - engages in social games (peek-a-boo, tickle)
+          - shows items to others spontaneously
+          - tolerates proximity of peers during parallel play
+        L2:
+          - initiates social interactions with peers
+          - takes turns during structured activities
+          - shares materials with peers when prompted
+          - engages in cooperative play with one peer
+          - responds to peer initiations appropriately
+        L3:
+          - maintains reciprocal conversations with peers
+          - demonstrates empathy and perspective-taking
+          - negotiates and compromises during group activities
+          - joins ongoing peer activities appropriately
+          - maintains friendships over time
+
+      - id: spontaneous_vocal
+        name: Spontaneous Vocal Behavior
+        L1:
+          - spontaneously vocalizes during preferred activities
+          - spontaneously names items in the environment
+          - spontaneously requests desired items without prompts
+          - spontaneously greets familiar people
+          - spontaneously comments on events
+        L2:
+          - spontaneously describes ongoing activities
+          - spontaneously asks questions about the environment
+          - spontaneously reports past events
+          - spontaneously uses social phrases appropriately
+          - spontaneously initiates conversation with peers
+        L3:
+          - spontaneously tells stories or narratives
+          - spontaneously makes relevant comments in conversations
+          - spontaneously adjusts language to different listeners
+          - spontaneously uses humor appropriately
+          - spontaneously provides explanations and reasons
+
+      - id: intraverbal
+        name: Intraverbal
+        gloss: Contextualized verbal-to-verbal responding
+        L2:
+          - answers WH-questions about familiar topics
+          - describes function of common objects
+          - names items in categories when given the category
+          - answers social questions (How are you?)
+          - describes recent events in sequence
+        L3:
+          - answers why- and how-questions
+          - engages in multi-turn conversations on a topic
+          - makes inferences from given information
+          - provides definitions of words
+          - answers hypothetical questions
+
+# MO (Motivating Operation) arrangement templates by skill-type category.
+# The generator picks one based on the skill target keywords.
+mo_arrangements:
+  - id: deprivation_preferred_item
+    applies_to: [mand_item, mand_action]
+    text: "Briefly withhold or restrict access to the target preferred item/activity for 30–60 seconds to establish motivation before the teaching opportunity."
+    context_examples: [snack time, free play, leisure time]
+
+  - id: missing_item_completion
+    applies_to: [mand_help, mand_missing]
+    text: "Arrange an activity that requires a specific item to complete, then omit that item from the available materials. Wait for the learner to notice the gap."
+    context_examples: [art activity, snack preparation, puzzle]
+
+  - id: break_opportunity
+    applies_to: [mand_break]
+    text: "Present a brief non-preferred task or demand at a level the learner can tolerate but may wish to pause. Wait for a request-for-break topography; honor the request immediately on first acquisition (CRF), thin later."
+    context_examples: [work time, tabletop task, academic period]
+
+  - id: completion_opportunity
+    applies_to: [mand_completion]
+    text: "Set up a clearly-bounded activity with a visible endpoint (e.g., a worksheet, a puzzle, a sorting task). Wait for the learner to indicate completion verbally or via AAC; honor the indication immediately."
+    context_examples: [worksheet, puzzle, sorting task, meal]
+
+  - id: bathroom_opportunity
+    applies_to: [mand_bathroom]
+    text: "Arrange a scheduled toileting window (typically 30–60 minutes after fluid intake) and observe for pre-toileting signs (body position, vocalization, squirming). Model the mand topography (vocal, sign, or AAC icon) at the first sign of need; reinforce any approximation with immediate escort to the bathroom. Do not prompt after an accident has started."
+    context_examples: [post-snack window, post-drink window, scheduled mid-morning check, end-of-activity transition]
+
+  - id: unexpected_change
+    applies_to: [mand_info_what, mand_info_where, spontaneous_comment]
+    text: "Create a small environmental change (new item, familiar item in new location, surprise event) that invites a verbal comment or question."
+    context_examples: [morning greeting, room transition, activity setup]
+
+  - id: peer_presence
+    applies_to: [social_initiation, social_turn_taking, peer_mand]
+    text: "Arrange a shared activity with one or more peers where the target response is naturally occasioned (turn-taking game, shared snack, collaborative task)."
+    context_examples: [peer play, circle time, shared snack]
+
+  - id: reciprocal_conversation
+    applies_to: [intraverbal_multi_turn, social_reciprocal, spontaneous_narrative]
+    text: "Engage the learner in a naturalistic conversation on a topic of demonstrated interest. Pause at natural turn boundaries to invite the target response."
+    context_examples: [transition conversation, post-activity debrief, leisure chat]
+
+  - id: routine_lead_in
+    applies_to: [spontaneous_greeting, intraverbal_routine]
+    text: "Use the natural beginning/ending of an established routine (morning arrival, mealtime, departure) as the moment for the target response."
+    context_examples: [arrival, snack, departure]
+
+# Natural-context examples drawn into prompts for variation
+natural_contexts:
+  - snack time
+  - free play with preferred materials
+  - transition between activities
+  - morning arrival routine
+  - peer group game
+  - art / craft activity
+  - leisure / sensory break
+  - outdoor play
+  - shared meal preparation
+  - departure routine
+
+# Prompt strategies used in NET (subset of full hierarchy — naturalistic)
+prompt_strategies:
+  - id: time_delay
+    name: Time Delay
+    description: "Wait a brief interval (0->2->4 s) for independent response before delivering a model or verbal prompt."
+    best_for: "Most NET mand and spontaneous vocal targets."
+
+  - id: model_then_fade
+    name: Model + immediate fade
+    description: "Deliver a vocal/gestural model if no response within the motivated moment; fade to expectant look over sessions."
+    best_for: "Acquisition of new mand topographies."
+
+  - id: expectant_look
+    name: Expectant look (pause)
+    description: "Deliver no prompt — maintain eye contact and hold the preferred item until the learner responds."
+    best_for: "Established mands; fading teacher-delivered prompts."
+
+  - id: verbal_fill_in
+    name: Verbal fill-in
+    description: "Deliver a partial phrase and pause; learner completes the vocal response."
+    best_for: "Song, rhyme, or scripted social-phrase targets."
+
+# Natural reinforcers — always the functional outcome of the target response
+natural_reinforcer_examples:
+  mand_item: "immediate access to the requested item for 30–60 seconds."
+  mand_action: "performance of the requested action."
+  mand_help: "adult delivers the requested help, task completed together."
+  mand_missing: "the missing item is provided, activity can continue."
+  mand_break: "immediate brief escape from the demand (30–60 seconds) to a neutral or preferred activity."
+  mand_completion: "the activity ends immediately and the learner transitions to the next preferred activity."
+  mand_bathroom: "immediate escort to the bathroom; the learner is not required to complete the current task before going. Pairing the mand with timely bathroom access is what teaches the learner that requesting works."
+  mand_info_what: "adult answers the question informatively."
+  mand_info_where: "adult answers the question or provides location."
+  mand_attention: "adult attends to the learner and engages briefly."
+  social_initiation: "peer engages back; activity continues with both."
+  social_turn_taking: "turn is delivered; game continues."
+  spontaneous_comment: "adult attends to the comment with matching affect."
+  spontaneous_greeting: "adult returns the greeting warmly."
+  intraverbal_multi_turn: "conversation continues with adult's naturally matched reply."
+  default: "natural social or tangible consequence matching the function of the response."
+
+# Mastery criteria for NET programs (slightly different emphasis than DTT)
+mastery_criteria:
+  - id: mc_indep_natural_env
+    text: "Independent use of target response across 3 natural opportunities per day for 3 consecutive days."
+  - id: mc_generalize_multi_therapist
+    text: "Independent use across 3 different adults and 2 different settings within 2 weeks."
+  - id: mc_peer_initiation
+    text: "Independent use with a peer in unstructured free play across 2 consecutive sessions."
+  - id: mc_spontaneous_rate
+    text: "Average rate of ≥ 3 spontaneous responses per 30-minute session across 3 consecutive sessions."
+  - id: mc_fluent_exchange
+    text: "Fluent exchange (response within 3 s of MO / opportunity) with appropriate topography, 80% of opportunities across 3 sessions."

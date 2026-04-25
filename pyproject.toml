@@ -1,0 +1,54 @@
+[project]
+name = "trace"
+version = "1.0.0"
+description = "TRACE — Taxonomy-Referenced ABA Clinical Examples. Synthetic dataset + generator for Applied Behavior Analysis teaching-program generation and session interpretation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Festus Kahunla" },
+]
+maintainers = [
+    { name = "Pombo Labs" },
+]
+keywords = [
+    "applied-behavior-analysis",
+    "aba",
+    "autism",
+    "clinical-nlp",
+    "synthetic-data",
+    "instruction-tuning",
+    "taxonomy",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dataset-loading = [
+    "datasets>=2.18.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Pombo-Labs/TRACE"
+Repository = "https://github.com/Pombo-Labs/TRACE"
+Documentation = "https://github.com/Pombo-Labs/TRACE#readme"
+Issues = "https://github.com/Pombo-Labs/TRACE/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]

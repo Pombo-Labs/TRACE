@@ -1,0 +1,294 @@
+# DTT taxonomy — TRACE v1
+# Self-contained: everything the DTT generator needs beyond shared primitives.
+# Citation: Lovaas 1987 JCCP; Smith 2001 Focus on Autism; CHH 2020 Chs. 17, 21.
+#
+# DTT fits array-based discrete-response skills. Only VB-MAPP domains where
+# the target is discrete selection / labeling / matching appear here.
+
+method:
+  id: dtt
+  name: Discrete Trial Training
+  short: DTT
+  citation: "Lovaas, O. I. (1987). JCCP, 55(1), 3–9. https://doi.org/10.1037/0022-006X.55.1.3; Smith, T. (2001). Focus on Autism, 16(2), 86–92."
+  when_to_use: >
+    Acquisition of discrete, decontextualized skills (receptive labels, tacts,
+    matching, early imitation) — especially early in instruction when stimulus
+    control must be established.
+
+# VB-MAPP domains appropriate for DTT (array-based discrete-response skills).
+# Other domains (Mand, Echoic, Motor Imitation, Intraverbal, Social, etc.)
+# belong to NET, PRT, or other method taxonomies.
+skill_domains:
+  vbmapp:
+    levels:
+      - id: L1
+        name: Level 1
+        developmental_age: "0–18 months"
+      - id: L2
+        name: Level 2
+        developmental_age: "18–30 months"
+      - id: L3
+        name: Level 3
+        developmental_age: "30–48 months"
+
+    domains:
+      - id: tact
+        name: Tact
+        gloss: Labeling / naming
+        L1:
+          - tacts common objects (ball, cup, shoe)
+          - tacts familiar people by name
+          - tacts common actions (running, eating, sleeping)
+          - tacts body parts
+          - tacts common animals
+        L2:
+          - tacts colors of objects
+          - tacts shapes (circle, square, triangle)
+          - tacts adjectives (big/little, hot/cold)
+          - tacts prepositions (in, on, under)
+          - tacts emotions in self and others
+        L3:
+          - tacts community helpers and their roles
+          - tacts categories (fruits, vehicles, clothing)
+          - tacts features of objects (color, shape, function)
+          - tacts past-tense events
+          - tacts abstract concepts (same/different, first/last)
+
+      - id: listener_responding
+        name: Listener Responding
+        gloss: Receptive language
+        L1:
+          - follows 1-step motor instructions (sit down, stand up)
+          - selects correct item from an array of 2
+          - points to named body parts
+          - points to named common objects
+          - follows instructions involving objects (give me the cup)
+        L2:
+          - selects correct item from array of 4–6
+          - follows 2-step instructions
+          - selects items by feature (find something red)
+          - selects items by function (find something you eat with)
+          - selects items by class (find an animal)
+        L3:
+          - selects items by multiple features simultaneously
+          - follows conditional instructions (if X, then Y)
+          - follows instructions involving temporal concepts (before, after)
+
+      - id: vp_mts
+        name: Visual Perceptual Skills & Matching-to-Sample
+        gloss: VP-MTS
+        L1:
+          - matches identical objects
+          - matches identical pictures
+          - matches colors (identical chips)
+          - matches shapes (identical blocks)
+          - completes simple 3–4 piece puzzles
+        L2:
+          - matches non-identical items by category
+          - sorts items into 2–3 categories
+          - matches quantities (1–5)
+          - matches upper-case letters
+          - completes 8–12 piece puzzles
+        L3:
+          - matches associated items (sock-shoe, cup-plate)
+          - sorts by multiple attributes simultaneously
+          - matches upper to lower case letters
+          - sequences 3–4 step picture sequences
+          - reproduces block designs from model
+
+      - id: lrffc
+        name: LRFFC
+        gloss: Listener Responding by Feature, Function, Class
+        L1:
+          - selects items by function (What do you drink from?)
+          - selects items by feature (What is round?)
+          - selects items by class (Find the animal)
+          - selects by single function from array of 3
+          - selects by single visible feature from array of 3
+        L2:
+          - selects items by function from array of 5–8
+          - selects items by feature from array of 5–8
+          - selects items by class from array of 5–8
+          - selects items by multiple features (round and red)
+          - selects items by function when item not visible
+        L3:
+          - selects items given 2+ features/functions simultaneously
+          - selects items by class with exclusion (animal but not a pet)
+          - selects items by abstract features (something needed when cold)
+          - selects items by comparison (which is heavier)
+          - selects items by negative features (not round, not food)
+
+      - id: reading
+        name: Reading
+        L1:
+          - matches letters to identical letters
+          - identifies own name in print
+          - identifies 5–10 upper-case letters
+          - matches words to identical words
+          - tracks print left to right
+        L2:
+          - identifies all upper-case letters
+          - identifies all lower-case letters
+          - reads 10–20 sight words
+          - sounds out CVC words (cat, dog, run)
+          - reads simple 2–3 word phrases
+        L3:
+          - reads sentences with comprehension
+          - reads short passages and answers questions
+          - phonetic decoding for novel words
+
+      - id: writing
+        name: Writing
+        L1:
+          - traces horizontal and vertical lines
+          - traces basic shapes (circle, cross)
+          - copies basic shapes from model
+          - traces letters of own name
+          - writes own name from model
+        L2:
+          - writes own name independently
+          - copies all upper-case letters from model
+          - writes upper-case letters from dictation
+          - copies simple words from model
+          - writes numbers 1–10
+
+      - id: math
+        name: Math
+        L1:
+          - rote counts to 10
+          - counts objects 1–5 with 1:1 correspondence
+          - identifies numerals 1–5
+          - matches quantities to numerals 1–5
+          - identifies basic shapes in math context
+        L2:
+          - counts objects 1–20 with 1:1 correspondence
+          - identifies numerals 1–20
+          - compares quantities (more/less/same)
+          - solves single-digit addition with manipulatives
+          - identifies coins by name
+        L3:
+          - adds single-digit numbers without manipulatives
+          - subtracts single-digit numbers
+          - identifies place value (ones, tens)
+          - tells time to the hour and half-hour
+          - solves simple word problems
+
+# Prompt hierarchies that can be used in DTT
+prompt_hierarchies:
+  - id: most_to_least
+    name: Most-to-Least (errorless)
+    sequence: [full_physical, partial_physical, gestural, positional, independent]
+    description: "Start with maximum assistance; fade systematically to independence."
+    best_for: "Acquisition, early learners, safety-critical skills."
+
+  - id: least_to_most
+    name: Least-to-Most
+    sequence: [independent, gestural, positional, partial_physical, full_physical]
+    description: "Start with independent attempt; add assistance only as needed."
+    best_for: "Learner with partial repertoire; promotes independence."
+
+  - id: time_delay
+    name: Time Delay (progressive)
+    sequence: [0s_delay, 2s_delay, 4s_delay, 6s_delay, independent]
+    description: "Increase latency between SD and prompt delivery across sessions."
+    best_for: "Prompt-dependency prevention; ideal for fading."
+    citation: "Touchette & Howard 1984 JABA."
+
+  - id: graduated_guidance
+    name: Graduated Guidance
+    sequence: [hand_over_hand_full, hand_over_hand_light, shadow, independent]
+    description: "Hand-over-hand guidance with fading physical pressure."
+    best_for: "Motor skills, self-care chaining."
+
+  - id: stimulus_fading
+    name: Stimulus Fading
+    sequence: [exaggerated_stimulus, moderate_fade, minimal_fade, natural_stimulus]
+    description: "Modify the stimulus itself; fade cue salience over sessions."
+    best_for: "Receptive discrimination, early reading."
+
+  - id: stimulus_shaping
+    name: Stimulus Shaping
+    sequence: [modified_stimulus, intermediate_shape, target_stimulus]
+    description: "Change the stimulus topography to approximate the target."
+    best_for: "Complex visual discriminations."
+
+# Error correction procedures available for DTT
+# Citation: Cooper, Heron, Heward (2020), Ch. 21.
+error_corrections:
+  - id: transfer_trial
+    name: Transfer trial
+    steps: >
+      Re-present SD -> provide effective-level prompt -> reinforce prompted
+      response -> distractor trial -> re-present SD independently.
+
+  - id: four_step
+    name: 4-step error correction
+    steps: >
+      Model correct response -> lead (do together) -> test (independent) ->
+      distractor -> retest.
+
+  - id: backstep
+    name: Backstep
+    steps: >
+      Return to previous prompt level that produced success ->
+      successful response -> re-attempt at target prompt level.
+
+  - id: simple_correction
+    name: Simple correction
+    steps: >
+      "No, watch me" -> model -> re-present SD -> differential reinforcement
+      for correct response.
+
+  - id: errorless
+    name: Errorless (preventive)
+    steps: >
+      Prevent errors by using high prompts from the start; fade gradually.
+      Paired with most-to-least prompt hierarchy.
+
+# Reinforcement schedules relevant for DTT (acquisition and thinning)
+# Citation: CHH (2020) Ch. 13, 22.
+# Note: DRO/DRA/DRI are behavior-reduction schedules handled in FCT taxonomy.
+reinforcement_schedules:
+  - id: crf
+    name: CRF (continuous reinforcement)
+    description: "Every correct response reinforced."
+    typical_phase: "Acquisition."
+
+  - id: fr2
+    name: FR-2 (fixed ratio 2)
+    description: "Every 2nd correct response reinforced."
+    typical_phase: "Thinning as accuracy stabilizes."
+
+  - id: vr3
+    name: VR-3 (variable ratio 3)
+    description: "Average of every 3rd correct response reinforced."
+    typical_phase: "Maintenance, resistance to extinction."
+
+  - id: token_economy
+    name: Token economy
+    description: "Tokens delivered per correct response; exchanged at session end for a back-up reinforcer appropriate to the learner (for children: candy, cookies, brief leisure-time access, preferred activity, screen time, or a favorite sensory item)."
+    typical_phase: "Group / classroom settings, mastered / generalization phase."
+
+# Mastery criteria common for DTT programs
+# Citation: CHH (2020) Ch. 28.
+mastery_criteria:
+  - id: mc_80_2sessions
+    text: "80% accuracy across 2 consecutive sessions with at least 10 trials each."
+
+  - id: mc_90_3sessions
+    text: "90% accuracy across 3 consecutive sessions."
+
+  - id: mc_80_generalization
+    text: "80% accuracy with 2 different therapists and 2 different settings."
+
+  - id: mc_80_independent
+    text: "80% accuracy at independent prompt level across 3 sessions."
+
+  - id: mc_90_first_trial
+    text: "90% first-trial-correct across 5 consecutive sessions."
+
+  - id: mc_fluency
+    text: "Fluency criterion: correct responses within 3-second latency at 90% accuracy."
+
+  - id: mc_natural_env
+    text: "Demonstrated use in natural environment across 3 independent instances."

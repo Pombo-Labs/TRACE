@@ -1,0 +1,318 @@
+# Session Interpretation taxonomy — TRACE v1
+# The controlled vocabulary the Task 2 generator draws from. Self-contained.
+#
+# Citations for underlying concepts: see taxonomy-v1.md.
+
+task:
+  id: session_interpretation
+  name: Behavioral Session Interpretation
+  citation: >
+    Multi-session interpretation framework is TRACE's operationalization.
+    Underlying concepts grounded in CHH (2020) Ch. 6–7 (analyzing behavior change),
+    Iwata 1982/1994 (functional analysis), Hanley-Iwata-McCord 2003 (FBA review),
+    Bijou-Peterson-Ault 1968 (ABC recording), Michael 1993 (MOs).
+
+# 12 session patterns (each drives trajectory + interpretation)
+patterns:
+  - id: mastery_progression
+    name: Mastery progression
+    description: "Steady improvement toward mastery criteria."
+    trend: ascending
+    concern_level: none
+    default_escalation: 1
+    citation: "CHH Ch. 6."
+
+  - id: regression
+    name: Regression
+    description: "Decline in performance after previous mastery or near-mastery."
+    trend: descending
+    concern_level: high
+    default_escalation: 3
+    citation: "CHH Ch. 26 (maintenance)."
+
+  - id: plateau
+    name: Plateau
+    description: "Accuracy stable but below mastery criteria for extended period."
+    trend: flat
+    concern_level: moderate
+    default_escalation: 2
+    citation: "CHH Ch. 7."
+
+  - id: frustration_pattern
+    name: Frustration pattern
+    description: "Declining accuracy accompanied by behavioral indicators of frustration and escape-maintained responding."
+    trend: descending
+    concern_level: high
+    default_escalation: 3
+    citation: "Iwata 1994 (escape function); CHH Ch. 27."
+
+  - id: variable_performance
+    name: Variable performance
+    description: "Inconsistent accuracy across sessions with no clear trend."
+    trend: variable
+    concern_level: moderate
+    default_escalation: 2
+    citation: "CHH Ch. 5 (measurement reliability)."
+
+  - id: prompt_dependency
+    name: Prompt dependency
+    description: "High accuracy with prompts but failure at independent level."
+    trend: flat_high_prompted
+    concern_level: moderate
+    default_escalation: 2
+    citation: "Touchette & Howard 1984 JABA (time delay)."
+
+  - id: rapid_acquisition
+    name: Rapid acquisition
+    description: "Quick skill acquisition exceeding expected timeline."
+    trend: sharply_ascending
+    concern_level: none
+    default_escalation: 1
+    citation: "CHH Ch. 6."
+
+  - id: generalization_failure
+    name: Generalization failure
+    description: "Strong performance in training but failure to generalize to novel conditions."
+    trend: context_dependent
+    concern_level: moderate
+    default_escalation: 2
+    citation: "Stokes & Baer 1977 JABA; CHH Ch. 26."
+
+  - id: extinction_burst
+    name: Extinction burst
+    description: "Temporary increase in problem behavior during behavior reduction."
+    trend: temporary_spike
+    concern_level: expected
+    default_escalation: 2
+    citation: "CHH Ch. 24."
+
+  - id: skill_loss_after_break
+    name: Skill loss after break
+    description: "Performance decline following extended absence or break, with recovery."
+    trend: drop_then_recovery
+    concern_level: moderate
+    default_escalation: 2
+    citation: "CHH Ch. 26 (maintenance)."
+
+  - id: motivating_operation_shift
+    name: Motivating operation shift
+    description: "Responding drops when MO changes (e.g., satiation); recovers when MO restored."
+    trend: mo_dip
+    concern_level: moderate
+    default_escalation: 2
+    citation: "Michael 1993 JEAB; CHH Ch. 16."
+
+  - id: setting_event_trigger
+    name: Setting event trigger
+    description: "Accuracy or behavior changes correlated with an external setting event (illness, sleep, schedule change)."
+    trend: setting_event
+    concern_level: moderate
+    default_escalation: 2
+    citation: "Smith & Iwata 1997 JABA; Bijou & Baer 1961."
+
+# Behavior functions
+functions:
+  - id: escape
+    name: escape
+    reinforcer: "Termination or avoidance of an aversive stimulus (demand, task, interaction)."
+    typical_antecedents: [demand presentation, difficult task, non-preferred activity, transition to work]
+    typical_consequences: [task removed, demand withdrawn, redirected to preferred activity]
+  - id: attention
+    name: attention
+    reinforcer: "Attention from others (adult or peer)."
+    typical_antecedents: [adult attention diverted, peer interaction, low-attention period]
+    typical_consequences: [adult attends, reprimand delivered, peer interaction initiated]
+  - id: tangible
+    name: tangible
+    reinforcer: "Access to an item or activity."
+    typical_antecedents: [preferred item removed, restricted access, another peer has item]
+    typical_consequences: [item returned, access granted, activity restored]
+  - id: automatic
+    name: automatic
+    reinforcer: "Self-produced reinforcement (sensory, proprioceptive)."
+    typical_antecedents: [low-stimulation period, alone time, waiting]
+    typical_consequences: [no social mediation; behavior self-terminates or continues]
+  - id: unknown
+    name: unknown
+    reinforcer: "Insufficient data to determine function."
+
+# Target behaviors (deceleration targets)
+# For full operational definitions + citations see taxonomy-v1.md.
+# Used when the generator samples 0–3 behaviors per log.
+target_behaviors:
+  - id: tantrum
+    name: Tantrum
+    operational: "Co-occurring cluster of two or more of: crying/screaming, dropping to floor, kicking, hitting, throwing objects, lasting ≥ 3 s."
+    plausible_functions: [escape, attention, tangible]
+    typical_severity: moderate
+  - id: aggression
+    name: Aggression
+    operational: "Attempted or completed forceful contact directed toward another person (hit, kick, bite, scratch, pinch, throw-at)."
+    plausible_functions: [escape, tangible, attention]
+    typical_severity: high
+  - id: sib
+    name: Self-injurious behavior (SIB)
+    operational: "Any response that produces tissue damage or has potential to (head-hit, self-bite, face-slap, head-bang, skin-pick, self-pinch)."
+    plausible_functions: [automatic, attention, escape]
+    typical_severity: high
+  - id: elopement
+    name: Elopement
+    operational: "Full body crossing a designated boundary without adult approval."
+    plausible_functions: [escape, tangible, automatic]
+    typical_severity: high
+  - id: property_destruction
+    name: Property destruction
+    operational: "Hitting/kicking furniture or walls; throwing objects not meant to be thrown; tearing clothing, books, materials."
+    plausible_functions: [escape, attention, tangible]
+    typical_severity: moderate
+  - id: motor_stereotypy
+    name: Motor stereotypy
+    operational: "Repetitive non-functional motor movements (hand-flap, body-rock, finger-flick, spin)."
+    plausible_functions: [automatic]
+    typical_severity: low
+  - id: vocal_stereotypy
+    name: Vocal stereotypy
+    operational: "Non-contextual, non-communicative vocalizations outside appropriate conversational context."
+    plausible_functions: [automatic]
+    typical_severity: low
+  - id: non_compliance
+    name: Non-compliance
+    operational: "Failure to initiate a requested response within 5 s of an instructional prompt, OR active refusal."
+    plausible_functions: [escape]
+    typical_severity: low
+  - id: mouthing
+    name: Mouthing
+    operational: "Placing hand, fingers, or non-food object into the mouth outside scheduled meal/snack times."
+    plausible_functions: [automatic]
+    typical_severity: low
+  - id: pica
+    name: Pica
+    operational: "Placement of any inedible item past the plane of the lips, including ingestion."
+    plausible_functions: [automatic, attention]
+    typical_severity: high
+  - id: verbal_aggression
+    name: Verbal aggression
+    operational: "Yelling, cursing, name-calling, or verbal threats toward another person."
+    plausible_functions: [attention, escape]
+    typical_severity: moderate
+  - id: fecal_smearing
+    name: Fecal smearing (scatolia)
+    operational: "Reaching into diaper, pull-up, or pants to retrieve feces and/or spreading feces onto skin, clothing, walls, furniture, or other surfaces."
+    plausible_functions: [automatic, attention]
+    typical_severity: high
+    citation: "Piazza et al. 1996 JABA; Matson et al. 2008 (scatolia in ASD)."
+  - id: toileting_accident
+    name: Toileting accident (urine or bowel)
+    operational: "Session toileting data tracks both successful voids in the toilet (urine and BM) and accidents (voiding outside the toilet onto self, clothing, furniture, or floor). The deceleration target is accident frequency; in-toilet voids are recorded as context for toileting progress. Medical rule-out required before treating accidents behaviorally."
+    plausible_functions: [automatic, escape]
+    typical_severity: moderate
+    citation: "Azrin & Foxx 1971 JABA; Cicero & Pfadt 2002; LeBlanc et al. 2005."
+
+# Measurement types used in session logs
+measurement_types:
+  - id: accuracy_pct
+    short: "accuracy"
+    description: "Trial-based percentage correct (X/N)."
+    used_for: [skill acquisition]
+  - id: frequency
+    short: "freq"
+    description: "Raw count per session."
+    used_for: [discrete behaviors, target behaviors]
+  - id: rate
+    short: "rate"
+    description: "Count per minute or hour."
+    used_for: [target behaviors]
+  - id: duration
+    short: "duration"
+    description: "Total elapsed time behavior occurred."
+    used_for: [tantrum, on-task engagement]
+  - id: latency
+    short: "latency"
+    description: "Time from SD to response initiation."
+    used_for: [skill responsivity]
+  - id: partial_interval
+    short: "PIR"
+    description: "Proportion of intervals in which behavior occurred at any point."
+    used_for: [stereotypy, low-intensity behavior]
+  - id: momentary_time_sampling
+    short: "MTS"
+    description: "Behavior sampled at end of each interval."
+    used_for: [group observation]
+
+# Escalation levels (safety-critical structured label)
+escalation_levels:
+  - id: 1
+    label: "Continue monitoring"
+    description: "Current programming is effective; no changes."
+  - id: 2
+    label: "Adjust next session"
+    description: "Implement a specific programming change at the next session."
+  - id: 3
+    label: "Supervisor review"
+    description: "Elevate to supervising BCBA within 24–48 hours."
+  - id: 4
+    label: "Safety immediate"
+    description: "Stop program; contact supervisor / family; consider crisis-plan activation."
+
+# Confidence levels (calibration signal)
+confidence_levels:
+  - id: high
+    label: high
+    description: "Pattern and recommendation well-supported by log data."
+  - id: moderate
+    label: moderate
+    description: "Data supports the hypothesis but alternatives cannot be fully ruled out."
+  - id: low
+    label: low
+    description: "Insufficient data to rule in a specific pattern; recommend data collection before programming changes."
+
+# Behavioral indicator phrases (pasted verbatim into session logs)
+# Organized by cluster; Task 2 generator samples from here.
+behavioral_indicators:
+  frustration:
+    - "Increased response latency (3–5× baseline)"
+    - "Pushing materials away from the work area"
+    - "Turning away from task or staff"
+    - "Vocal refusal ('no', 'I don't want to')"
+    - "Self-stimulatory behavior increase during demand periods"
+    - "Crying during demand presentation"
+    - "Elopement from the work area"
+    - "Attempts at property destruction (throwing materials, swiping items off the surface)"
+    - "Aggression attempt directed at staff (hit, kick, or scratch toward adult)"
+    - "Peer aggression (hitting or pushing peers during group activities)"
+    - "Self-injurious behavior onset during task difficulty (self-biting, hair-pulling, head-hitting)"
+  engagement:
+    - "Eye contact maintained throughout trials"
+    - "Quick response latency (within 2–3 seconds)"
+    - "Reaching for materials proactively"
+    - "Smiling during reinforcement delivery"
+    - "Requesting more trials verbally"
+    - "Appropriate sitting posture maintained"
+  disengagement:
+    - "Looking away during SD presentation"
+    - "Delayed responding (>5 seconds consistently)"
+    - "Stereotypic behavior during inter-trial intervals"
+    - "Leaving seat without permission"
+    - "Playing with non-task materials"
+    - "Echolalic responding (repeating SD rather than answering)"
+
+# Teaching method metadata (for referencing methods in log programs)
+teaching_methods:
+  - id: dtt
+    name: DTT
+    default_structure: "structured discrete trials, massed"
+  - id: net
+    name: NET
+    default_structure: "natural-environment embedded opportunities"
+  - id: task_analysis
+    name: Task Analysis
+    default_structure: "multi-step chaining, {chain_type}"
+  - id: fct
+    name: FCT
+    default_structure: "functional communication training, replacement response = {replacement}"
+  - id: prt
+    name: PRT
+    default_structure: "pivotal response training, child-choice, attempt reinforcement"
+  - id: bst
+    name: BST
+    default_structure: "staff-facing training program"

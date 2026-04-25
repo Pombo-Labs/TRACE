@@ -1,0 +1,413 @@
+# Task Analysis / Chaining taxonomy — TRACE v1
+# Self-contained: AFLS skills broken into step lists, chain types, prompting.
+# Citation: CHH 2020 Ch. 23; Slocum & Tiger 2011 JABA; Partington & Mueller 2012.
+
+method:
+  id: task_analysis
+  name: Task Analysis / Chaining
+  short: Task Analysis
+  citation: "Cooper, Heron, Heward (2020) Applied Behavior Analysis (3rd ed.), Ch. 23; Slocum, S. K. & Tiger, J. H. (2011). JABA, 44(4), 793–805; Partington & Mueller 2012 (AFLS)."
+  when_to_use: >
+    Multi-step skills with a natural sequence — toileting, handwashing,
+    dressing, cooking, cleaning, classroom routines, community tasks,
+    vocational routines.
+
+# Chain types
+chain_types:
+  - id: forward
+    name: Forward chaining
+    description: "Teach step 1 to mastery, then 1->2, then 1->2->3, progressively adding later steps."
+    best_for: "Skills where early steps are simple and the chain grows in complexity."
+  - id: backward
+    name: Backward chaining
+    description: "Complete all steps for the learner except the last; teach the last step first, then work backward. The final reinforcer (task completion) is always present for the learner."
+    best_for: "Skills where the terminal reinforcer is salient (bathing, dressing, meal cleanup)."
+  - id: total_task
+    name: Total-task presentation
+    description: "Prompt the learner through the entire chain every trial; fade prompts across all steps simultaneously."
+    best_for: "Skills with few steps, or when all steps are similar in difficulty."
+
+# Prompt hierarchies commonly used in chaining
+prompt_hierarchies:
+  - id: graduated_guidance
+    name: Graduated Guidance
+    description: "Hand-over-hand physical guidance with fading pressure; move to shadow, then independent."
+    best_for: "Self-care and motor-dominant chains."
+  - id: most_to_least
+    name: Most-to-Least
+    description: "Start with full-physical prompt at each step; fade to partial physical, gestural, verbal, independent."
+    best_for: "Acquisition phase; new chains."
+  - id: least_to_most
+    name: Least-to-Most
+    description: "Allow independent attempt; add progressively more intrusive prompts only if learner does not initiate."
+    best_for: "Partial-repertoire chains; promoting independence."
+
+# Error correction procedures appropriate for chaining
+error_corrections:
+  - id: back_to_previous_step
+    name: Back-step + re-approach
+    steps: "Return to the previously-mastered step; re-execute that step correctly; then re-attempt the missed step with one prompt level above the last independent level."
+  - id: model_prompt_fade
+    name: Model -> prompt -> fade
+    steps: "Demonstrate the correct step; provide physical or gestural prompt as needed; fade prompt across subsequent trials."
+  - id: task_reset
+    name: Task reset
+    steps: "Pause the chain; reset environmental stimuli; restart the chain from the beginning with full prompts at the previously-missed step."
+
+# Reinforcement schedules for chaining
+reinforcement_schedules:
+  - id: crf_per_step
+    name: CRF per step (acquisition)
+    description: "Continuous reinforcement for each correctly-completed step during acquisition."
+  - id: terminal_reinforcement
+    name: Terminal reinforcement (mastered)
+    description: "Reinforcement delivered only at chain completion; no per-step reinforcement."
+  - id: differential_per_step
+    name: Differential per-step + terminal
+    description: "Small per-step reinforcement for independent responses; larger reinforcer at chain completion."
+  - id: token_economy
+    name: Token economy
+    description: "One token per correctly-completed step; token exchange at chain completion."
+
+# Mastery criteria for chains (independence) vs toleration programs.
+# Generator filters by applies_to when picking a criterion.
+mastery_criteria:
+  - id: mc_all_steps_independent
+    applies_to: independence
+    text: "100% of steps completed independently (no prompts) across 3 consecutive trials of the full chain."
+  - id: mc_fluent_chain
+    applies_to: independence
+    text: "Full chain completed within {fluency_seconds}s across 3 consecutive sessions with independent responding on all steps."
+  - id: mc_generalization
+    applies_to: independence
+    text: "Full chain completed independently with 2 different adults in 2 different settings across 2 consecutive days."
+  - id: mc_self_initiation
+    applies_to: independence
+    text: "Chain self-initiated from the appropriate antecedent (no verbal prompt to begin) across 3 consecutive opportunities."
+  - id: mc_toleration_full_duration
+    applies_to: toleration
+    text: "End-goal duration tolerated across 3 consecutive sessions with no safety behaviors (refusal, crying, SIB, aggression, property destruction)."
+  - id: mc_toleration_caregivers
+    applies_to: toleration
+    text: "End-goal activity tolerated with 2 different caregivers (primary caregiver + one other) across 2 consecutive weeks."
+  - id: mc_toleration_settings
+    applies_to: toleration
+    text: "End-goal activity tolerated across 2 different settings (e.g., home and clinic) across 2 consecutive weeks without safety behaviors."
+
+# AFLS skill domains — learner profile + module + skill + step definitions
+afls:
+  modules:
+    - id: basic_living
+      name: Basic Living Skills
+      learner_profiles: [school_age, adolescent, adult]
+      # Two kinds of programs in this module:
+      #   - "steps" field = independence-focused chaining (learner performs the skill with
+      #     graduated prompts)
+      #   - "shaping_steps" field = toleration program (learner allows staff or caregiver
+      #     to perform the skill; duration-based shaping of tolerance)
+      # Some real skills have BOTH variants depending on learner profile and history.
+      skills:
+        - name: washing hands
+          chain_type_preferred: total_task
+          steps:
+            - Walk to the sink.
+            - Turn on the water.
+            - Wet hands under the water.
+            - Apply soap to hands.
+            - Rub hands together for 15–20 seconds, covering fronts, backs, and between fingers.
+            - Rinse hands thoroughly under the water.
+            - Turn off the water.
+            - Dry hands with a towel.
+        - name: brushing teeth
+          chain_type_preferred: total_task
+          steps:
+            - Collect toothbrush and toothpaste.
+            - Wet the toothbrush under water.
+            - Apply a pea-sized amount of toothpaste.
+            - Brush upper-front teeth in small circles for 30 seconds.
+            - Brush lower-front teeth in small circles for 30 seconds.
+            - Brush upper-back teeth (left and right).
+            - Brush lower-back teeth (left and right).
+            - Spit into the sink and rinse mouth.
+            - Rinse the toothbrush and return it to the holder.
+        - name: putting on a shirt (pullover)
+          chain_type_preferred: backward
+          steps:
+            - Hold the shirt with the front facing away.
+            - Place both arms into the sleeves.
+            - Pull the opening over the head.
+            - Push arms through the sleeves fully.
+            - Pull the bottom of the shirt down to straighten it.
+        - name: putting on pants
+          chain_type_preferred: backward
+          steps:
+            - Sit or stand securely.
+            - Hold pants with the front facing away.
+            - Place one leg into the corresponding pant leg.
+            - Place the other leg into the other pant leg.
+            - Pull pants up to the waist.
+            - Fasten the button / zipper / velcro.
+        - name: showering
+          chain_type_preferred: backward
+          steps:
+            - Enter the shower and close the curtain.
+            - Turn on the water and adjust temperature.
+            - Wet body completely.
+            - Apply soap to a washcloth.
+            - Wash body systematically (face -> torso -> arms -> legs -> feet).
+            - Rinse all soap off.
+            - Apply shampoo and rub into hair.
+            - Rinse hair completely.
+            - Turn off the water.
+            - Exit the shower and dry off with a towel.
+        - name: toileting routine
+          chain_type_preferred: forward
+          steps:
+            - Recognize the need and walk to the bathroom.
+            - Close the door for privacy.
+            - Lower clothing appropriately.
+            - Sit on the toilet.
+            - Complete the elimination.
+            - Use toilet paper correctly.
+            - Stand and pull clothing up.
+            - Flush the toilet.
+            - Wash hands.
+
+        # Toleration programs
+        # For learners who do not tolerate the activity being performed on them.
+        # Goal is NOT to do it independently — goal is to allow caregiver/staff to
+        # complete the activity without refusal, crying, SIB, or aggression, with
+        # duration shaped incrementally.
+        - name: tolerating tooth brushing by caregiver
+          program_type: toleration
+          target_activity: tooth brushing performed by caregiver
+          end_goal_description: "full 2-minute tooth-brushing routine completed by caregiver without refusal, crying, SIB, or aggression"
+          shaping_steps:
+            - "1-second toothbrush contact with teeth"
+            - "3 seconds of brushing"
+            - "5 seconds of brushing"
+            - "15 seconds of brushing"
+            - "30 seconds of brushing"
+            - "60 seconds of brushing"
+            - "Full 2-minute brushing routine"
+
+        - name: tolerating hair washing by caregiver
+          program_type: toleration
+          target_activity: hair washing / shampooing performed by caregiver
+          end_goal_description: "full hair-washing routine completed by caregiver without refusal or safety behaviors"
+          shaping_steps:
+            - "5 seconds of water on hair"
+            - "15 seconds of water on hair"
+            - "Shampoo applied without lathering"
+            - "30 seconds of gentle lathering"
+            - "60 seconds of lathering"
+            - "Full rinse"
+            - "Full routine: wet -> shampoo -> lather -> rinse"
+
+        - name: tolerating nail clipping
+          program_type: toleration
+          target_activity: nail clipping performed by caregiver
+          end_goal_description: "all 10 fingernails (and optionally toenails) clipped by caregiver without refusal, pulling hand away, or safety behaviors"
+          shaping_steps:
+            - "1 fingernail clipped"
+            - "2 fingernails clipped in one sitting"
+            - "5 fingernails clipped (one hand)"
+            - "All 10 fingernails clipped"
+            - "All 10 fingernails + 10 toenails clipped"
+
+        - name: tolerating haircut
+          program_type: toleration
+          target_activity: haircut by caregiver or stylist
+          end_goal_description: "full haircut (10+ minutes) completed without refusal, leaving the chair, or safety behaviors"
+          shaping_steps:
+            - "Sit in the chair with cape on for 30 seconds"
+            - "Tolerate 1 minute of quiet sitting with cape"
+            - "Tolerate 2 minutes of brief clipping"
+            - "Tolerate 5 minutes of clipping"
+            - "Tolerate 10 minutes of clipping"
+            - "Tolerate full haircut routine"
+
+        - name: tolerating showering assistance
+          program_type: toleration
+          target_activity: showering / bathing performed with caregiver assistance
+          end_goal_description: "full assisted shower routine completed without refusal, exiting the shower, or safety behaviors"
+          shaping_steps:
+            - "Stand in shower for 30 seconds with water off"
+            - "Tolerate 10 seconds of water on body"
+            - "Tolerate 30 seconds of water on body"
+            - "Tolerate soap application to torso"
+            - "Tolerate full body wash by caregiver"
+            - "Full assisted shower routine"
+
+        - name: tolerating medical exam
+          program_type: toleration
+          target_activity: routine medical exam by clinician
+          end_goal_description: "full routine exam (stethoscope, blood pressure cuff, otoscope, temperature) completed without refusal or safety behaviors"
+          shaping_steps:
+            - "Enter and sit in the exam room"
+            - "Tolerate stethoscope contact for 5 seconds"
+            - "Tolerate blood pressure cuff on arm"
+            - "Tolerate otoscope in ear"
+            - "Tolerate temperature reading"
+            - "Tolerate full routine exam"
+
+    - id: home
+      name: Home Skills
+      learner_profiles: [adolescent, adult]
+      skills:
+        - name: making the bed
+          chain_type_preferred: forward
+          steps:
+            - Strip any disheveled linens and lay them flat.
+            - Straighten the bottom sheet across the mattress.
+            - Place the top sheet evenly over the mattress.
+            - Tuck the top sheet in at the foot of the bed.
+            - Place the comforter over the top sheet.
+            - Place pillows at the head of the bed.
+            - Smooth the comforter surface.
+        - name: meal cleanup
+          chain_type_preferred: forward
+          steps:
+            - Stack used dishes on one side of the table.
+            - Carry dishes to the sink or dishwasher.
+            - Rinse food residue into the trash or disposal.
+            - Load dishes into the dishwasher (or wash by hand).
+            - Wipe the table with a damp cloth.
+            - Put away any leftover food into containers.
+            - Place containers in the refrigerator.
+        - name: dishwashing by hand
+          chain_type_preferred: forward
+          steps:
+            - Scrape food residue into the trash.
+            - Fill the sink with warm, soapy water.
+            - Wash each dish systematically with a sponge.
+            - Rinse each dish under clean water.
+            - Place each dish on the drying rack.
+            - Drain the sink and wipe it down.
+        - name: operating the dishwasher
+          chain_type_preferred: forward
+          steps:
+            - Collect dirty dishes from the table and sink area.
+            - Scrape any solid food residue into the trash.
+            - Rinse dishes briefly under water.
+            - Open the dishwasher door.
+            - Load plates and bowls into the bottom rack.
+            - Load cups, glasses, and small items into the top rack.
+            - Place utensils handle-down in the utensil basket.
+            - Add detergent to the detergent dispenser.
+            - Close the dishwasher door.
+            - Select the appropriate wash cycle and press Start.
+        - name: unloading the dishwasher
+          chain_type_preferred: forward
+          steps:
+            - Open the dishwasher once the cycle is complete.
+            - Unload the top rack first (cups, glasses, small items).
+            - Put cups and glasses away in the correct cabinet.
+            - Unload the utensil basket.
+            - Put utensils away in the drawer.
+            - Unload the bottom rack (plates, bowls, larger items).
+            - Put plates and bowls away in the correct cabinet.
+            - Close the dishwasher door.
+        - name: doing laundry
+          chain_type_preferred: total_task
+          steps:
+            - Sort laundry by color (lights / darks / whites).
+            - Load the washing machine with one color group.
+            - Add detergent according to instructions.
+            - Select the correct wash cycle and start the machine.
+            - When complete, move clothes to the dryer.
+            - Start the dryer on the correct cycle.
+            - When dry, fold clothes by category.
+            - Put folded clothes away in drawers or closet.
+        - name: simple meal preparation (sandwich)
+          chain_type_preferred: total_task
+          steps:
+            - Collect all ingredients (bread, filling, spread).
+            - Place two slices of bread on the plate.
+            - Apply spread to one slice.
+            - Place filling on the spread slice.
+            - Place the second slice on top.
+            - Cut the sandwich in half if desired.
+            - Place on a plate to serve.
+
+    - id: community
+      name: Community Participation Skills
+      learner_profiles: [adolescent, adult]
+      skills:
+        - name: crossing a street safely
+          chain_type_preferred: total_task
+          steps:
+            - Approach the crosswalk and stop at the curb.
+            - Look left, look right, look left again.
+            - Identify the walk signal or absence of traffic.
+            - Begin to cross while continuing to scan for vehicles.
+            - Cross directly to the opposite curb.
+            - Step up onto the sidewalk.
+        - name: ordering in a restaurant
+          chain_type_preferred: total_task
+          steps:
+            - Approach the counter or wait to be seated.
+            - Review the menu.
+            - Decide on a choice.
+            - Place the order verbally (or with an AAC device).
+            - Respond to clarifying questions.
+            - Pay using money or a card.
+            - Wait for the order and collect it.
+        - name: using public transportation
+          chain_type_preferred: forward
+          steps:
+            - Confirm the correct stop or station.
+            - Purchase or have the fare ready.
+            - Wait at the designated boarding area.
+            - Board the vehicle when it arrives.
+            - Pay the fare or present the pass.
+            - Sit or stand safely.
+            - Monitor the route for the correct stop.
+            - Exit at the correct stop.
+
+    - id: vocational
+      name: Vocational Skills
+      learner_profiles: [adolescent, adult]
+      skills:
+        - name: clocking in at start of shift
+          chain_type_preferred: total_task
+          steps:
+            - Arrive at the workplace by the scheduled time.
+            - Locate the time clock or digital system.
+            - Enter identification (ID card / badge / code).
+            - Confirm the clock-in timestamp.
+            - Notify the supervisor or check the day's task list.
+            - Proceed to the assigned workstation.
+        - name: completing assigned tasks in order
+          chain_type_preferred: forward
+          steps:
+            - Review the task list for the shift.
+            - Gather needed materials for the first task.
+            - Complete the first task to the specified standard.
+            - Mark the first task complete on the list.
+            - Return materials to storage.
+            - Move to the next task on the list and repeat.
+
+    - id: independent_living
+      name: Independent Living Skills
+      learner_profiles: [adult]
+      skills:
+        - name: taking medication as prescribed
+          chain_type_preferred: total_task
+          steps:
+            - Check the medication schedule at the scheduled time.
+            - Collect the correct medication bottle.
+            - Confirm the dose against the label.
+            - Measure or count the correct dose.
+            - Take the medication with water.
+            - Log the dose in the medication tracker.
+            - Return the bottle to its storage location.
+        - name: scheduling a medical appointment
+          chain_type_preferred: forward
+          steps:
+            - Identify the reason for the appointment.
+            - Locate the provider's contact information.
+            - Call or use the online system.
+            - Provide name, date of birth, and insurance information.
+            - Request an available appointment time.
+            - Confirm the appointment and save it to the calendar.

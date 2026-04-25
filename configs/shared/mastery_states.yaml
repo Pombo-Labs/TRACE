@@ -1,0 +1,46 @@
+# Mastery states taxonomy — TRACE v1
+# Where a skill sits in its learning trajectory.
+# Citation: Cooper, Heron, Heward (2020), Ch. 26, Ch. 28.
+
+states:
+  - id: emerging
+    name: Emerging
+    short: emerging
+    accuracy_range: [0.00, 0.30]
+    description: "Skill not yet acquired; high prompt levels needed."
+    prompt_level_guidance: "Begin at higher prompt levels (full physical / partial physical)."
+
+  - id: developing
+    name: Developing
+    short: developing
+    accuracy_range: [0.30, 0.50]
+    description: "Responding established; stimulus control unstable."
+    prompt_level_guidance: "Partial physical or modeling prompt with systematic fading."
+
+  - id: approaching
+    name: Approaching mastery
+    short: approaching mastery
+    accuracy_range: [0.50, 0.70]
+    description: "Moving toward independence; prompt fading in progress."
+    prompt_level_guidance: "Gestural or positional prompts; plan fade to independence."
+
+  - id: near
+    name: Near mastery
+    short: near mastery
+    accuracy_range: [0.70, 0.85]
+    description: "Stimulus control solid; occasional errors on complex stimuli."
+    prompt_level_guidance: "Minimal prompts; increase expectations for independence."
+
+  - id: mastered
+    name: Mastered at current level
+    short: mastered
+    accuracy_range: [0.85, 1.00]
+    description: "Meets mastery criterion for current step."
+    prompt_level_guidance: "Independent responding; move to generalization."
+
+  - id: generalization
+    name: Generalization phase
+    short: generalization
+    accuracy_range: [0.85, 1.00]
+    description: "Mastered in training; extending to novel settings / materials / therapists."
+    prompt_level_guidance: "NET-style opportunities; multiple exemplar probing."

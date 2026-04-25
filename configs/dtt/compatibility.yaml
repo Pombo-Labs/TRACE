@@ -1,0 +1,41 @@
+# DTT clinical-consistency rules — TRACE v1
+# Enforced by the DTT generator during sampling to avoid clinically-inconsistent combinations.
+
+# Errorless error-correction procedure pairs exclusively with most-to-least prompt hierarchy
+# Citation: CHH Ch. 21 — errorless learning is the errorless most-to-least convention.
+errorless_requires_hierarchy: most_to_least
+
+# Mastery state -> acceptable reinforcement schedule IDs
+# Citation: CHH Ch. 13, 28 — reinforcement thinning follows acquisition -> mastery -> maintenance.
+mastery_to_reinforcement:
+  emerging: [crf]
+  developing: [crf]
+  approaching: [crf, fr2]
+  near: [fr2, vr3]
+  mastered: [fr2, vr3, token_economy]
+  generalization: [vr3, token_economy]
+
+# VB-MAPP level -> compatible learner profile ids
+# Citation: Sundberg 2008 (VB-MAPP manual) — level is anchored to developmental age.
+level_to_learner_profiles:
+  L1: [early]
+  L2: [early, school_age]
+  L3: [school_age, adolescent]
+
+# Level -> array size for stimulus field (DTT-specific)
+array_size_by_level:
+  L1:
+    n: 3
+    text: "field of 3 (target + 2 distractors)"
+  L2:
+    n: 5
+    text: "field of 5 (target + 4 distractors)"
+  L3:
+    n: 6
+    text: "field of 6 (target + 5 distractors, mixed categories)"
+
+# Sampling weights for level selection (DTT biased toward L1/L2 discrete skills)
+level_sampling_weights:
+  L1: 0.45
+  L2: 0.40
+  L3: 0.15

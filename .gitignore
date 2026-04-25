@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.eggs/
+.venv/
+venv/
+env/
+
+# Packaging
+*.egg
+*.wheel
+pip-log.txt
+pip-delete-this-directory.txt
+
+# uv lockfile — not committed; runtime deps are spec'd in pyproject.toml +
+# requirements.txt. Anyone running the generator only needs PyYAML, which is
+# stable enough that a pinned lockfile would add noise without value.
+uv.lock
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Type checking
+.mypy_cache/
+.ruff_cache/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Working artifacts — these are intentionally not committed.
+# `data/splits/` IS committed (the release payload).
+# But if anyone regenerates mid-review, they produce these:
+data/splits/curation_pool.jsonl
+data/splits/curation_pool_original.jsonl
+data/splits/dtt.jsonl
+data/splits/net.jsonl
+data/splits/task_analysis.jsonl
+data/splits/session_interpretation.jsonl
+
+# Curation review artifact (regenerated; not part of the release)
+docs/curation/review.md

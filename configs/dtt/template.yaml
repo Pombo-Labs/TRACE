@@ -1,0 +1,90 @@
+# DTT teaching program template — TRACE v1
+# Filled by src/generate.py with values sampled from taxonomy.
+
+template_id: task1_dtt_v1
+task_type: teaching_program
+method_id: dtt
+
+# System prompt used for this task type
+system_prompt: |
+  You are an expert ABA (Applied Behavior Analysis) clinical assistant. You help
+  Board Certified Behavior Analysts and staff design teaching programs for
+  individuals with autism. Your responses are clinically accurate, individualized
+  to the learner profile, follow BACB ethical guidelines, and reference no real
+  client data. Select the appropriate teaching method (DTT, NET, Task Analysis,
+  FCT, BST, PRT) based on the skill target and learner profile.
+
+# User message template variants — one is sampled per example for phrasing diversity
+user_variants:
+  - |
+    Generate a teaching program for the following target.
+
+    Skill Target: {skill_target}
+    Curriculum Reference: {curriculum_ref}
+    Learner Profile: {learner_profile_name}
+    Current Mastery: {mastery_state_name}
+    Teaching Method: DTT
+
+    Provide the full program structure appropriate to the selected method.
+
+  - |
+    I need a DTT program for this skill.
+
+    Target: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner: {learner_profile_name}
+    Mastery Status: {mastery_state_name}
+
+    Please include the SD, prompt hierarchy, stimulus array, error correction procedure, reinforcement schedule, and mastery criteria.
+
+  - |
+    Design a Discrete Trial Training program for the following.
+
+    Skill: {skill_target}
+    Curriculum: {curriculum_ref}
+    Learner Level: {learner_profile_name}
+    Baseline: {mastery_state_name}
+
+    Include the full DTT trial structure.
+
+# Assistant message template — filled by generator
+# All slots in {braces} are computed by the generator from taxonomy values
+assistant_template: |
+  ## Program Overview
+  - Target skill: {skill_target}
+  - Curriculum: {curriculum_ref}
+  - Learner: {learner_profile_name}
+  - Current mastery: {mastery_state_name}
+
+  This DTT program establishes stimulus control over the target skill through structured discrete trials with a defined prompt hierarchy, stimulus array, and systematic error-correction procedure.
+
+  ## Discriminative Stimulus (SD)
+  Primary SD: "{primary_sd}"
+  Variations: {sd_variations}
+  Presentation: {sd_presentation}
+
+  ## Prompt Hierarchy
+  Strategy: {prompt_hierarchy_name}
+  Sequence: {prompt_sequence}
+  Current prompt level: At the {mastery_state_short} stage, {current_prompt_guidance}
+
+  ## Stimulus Array
+  Array size: {array_size}
+  Target stimuli: {target_stimuli}
+  {distractor_block}
+  Rotation: Randomize position of target across trials to prevent position bias.
+
+  ## Error Correction Procedure
+  {error_correction_steps}
+
+  ## Reinforcement Schedule
+  {reinforcement_schedule_name} — {reinforcement_description}. Provide differential reinforcement: higher-quality reinforcement for independent correct responses than for prompted correct responses.
+
+  ## Mastery Criteria
+  {mastery_criterion_text}
+
+  ## Data Collection
+  Trial-by-trial data recording prompt level and response accuracy. IOA scheduled every {ioa_frequency} sessions minimum; target agreement ≥ 80%.
+
+  ## Generalization & Maintenance Plan
+  Post-mastery: probe with novel stimuli, across {n_generalization_therapists} additional therapists, and in at least {n_generalization_settings} natural contexts. Maintenance probes weekly for 4 weeks, then monthly.

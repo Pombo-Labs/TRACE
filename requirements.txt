@@ -1,0 +1,9 @@
+# Runtime dependencies for the TRACE generator + dataset loading.
+#
+# Core (required to regenerate the corpus from configs):
+pyyaml>=6.0
+
+# Optional — only needed if you load TRACE via the Hugging Face datasets
+# library (`load_dataset("PomboLabs/TRACE")`). Skip if you only consume the
+# raw JSONL files under data/splits/.
+datasets>=2.18.0

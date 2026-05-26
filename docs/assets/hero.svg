@@ -1,110 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" role="img" aria-label="TRACE — Taxonomy-Referenced ABA Clinical Examples">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="TRACE — Taxonomy-Referenced ABA Clinical Examples">
   <defs>
     <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#2ee6c8"/>
       <stop offset="50%" stop-color="#6c7bff"/>
       <stop offset="100%" stop-color="#ff5ea0"/>
     </linearGradient>
-    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#2ee6c8"/>
-      <stop offset="50%" stop-color="#6c7bff"/>
-      <stop offset="100%" stop-color="#ff5ea0"/>
-    </linearGradient>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0a0e1a"/>
-      <stop offset="100%" stop-color="#0c1226"/>
-    </linearGradient>
-    <radialGradient id="gTeal" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#2ee6c8" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#2ee6c8" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="gIndigo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#6c7bff" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#6c7bff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="gMag" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ff5ea0" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#ff5ea0" stop-opacity="0"/>
-    </radialGradient>
     <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feGaussianBlur stdDeviation="4" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
 
-  <!-- base -->
-  <rect width="1200" height="420" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="#0a0e1a"/>
 
-  <!-- drifting aurora -->
-  <g>
-    <ellipse cx="300" cy="150" rx="300" ry="210" fill="url(#gTeal)">
-      <animateTransform attributeName="transform" type="translate" values="0 0; 70 40; -20 -30; 0 0" dur="17s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="640" cy="280" rx="340" ry="230" fill="url(#gIndigo)">
-      <animateTransform attributeName="transform" type="translate" values="0 0; -60 -30; 40 30; 0 0" dur="21s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="950" cy="150" rx="300" ry="200" fill="url(#gMag)">
-      <animateTransform attributeName="transform" type="translate" values="0 0; 40 -40; -50 20; 0 0" dur="19s" repeatCount="indefinite"/>
-    </ellipse>
-  </g>
-
-  <!-- halo rings behind the wordmark -->
-  <g fill="none" stroke="url(#brand)">
-    <circle cx="600" cy="172" r="118" stroke-width="2" opacity="0.30">
-      <animate attributeName="r" values="112;132;112" dur="5s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.37 0 0.63 1;0.37 0 0.63 1" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.12;0.40;0.12" dur="5s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.37 0 0.63 1;0.37 0 0.63 1" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="600" cy="172" r="150" stroke-width="1.5" opacity="0.18">
-      <animate attributeName="r" values="150;172;150" dur="5s" begin="-1.2s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.37 0 0.63 1;0.37 0 0.63 1" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.06;0.24;0.06" dur="5s" begin="-1.2s" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.37 0 0.63 1;0.37 0 0.63 1" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- wordmark -->
-  <text x="600" y="205" text-anchor="middle" filter="url(#soft)"
+  <text x="600" y="170" text-anchor="middle" filter="url(#soft)"
         font-family="'Space Grotesk','Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif"
         font-weight="800" font-size="108" letter-spacing="10" fill="url(#brand)">TRACE</text>
 
-  <!-- tagline -->
-  <text x="600" y="252" text-anchor="middle"
+  <text x="600" y="220" text-anchor="middle"
         font-family="'Space Grotesk','Segoe UI',system-ui,-apple-system,Helvetica,Arial,sans-serif"
         font-weight="500" font-size="23" letter-spacing="0.4" fill="#aab4d6">Taxonomy-Referenced ABA Clinical Examples</text>
-
-  <!-- taxonomy cell grid (subtle background dots) -->
-  <g fill="#6c7bff" opacity="0.20">
-    <circle cx="140" cy="335" r="2"/><circle cx="240" cy="335" r="2"/><circle cx="340" cy="335" r="2"/><circle cx="440" cy="335" r="2"/><circle cx="540" cy="335" r="2"/><circle cx="640" cy="335" r="2"/><circle cx="740" cy="335" r="2"/><circle cx="840" cy="335" r="2"/><circle cx="940" cy="335" r="2"/><circle cx="1040" cy="335" r="2"/>
-    <circle cx="140" cy="370" r="2"/><circle cx="240" cy="370" r="2"/><circle cx="340" cy="370" r="2"/><circle cx="440" cy="370" r="2"/><circle cx="540" cy="370" r="2"/><circle cx="640" cy="370" r="2"/><circle cx="740" cy="370" r="2"/><circle cx="840" cy="370" r="2"/><circle cx="940" cy="370" r="2"/><circle cx="1040" cy="370" r="2"/>
-    <circle cx="140" cy="405" r="2"/><circle cx="240" cy="405" r="2"/><circle cx="340" cy="405" r="2"/><circle cx="440" cy="405" r="2"/><circle cx="540" cy="405" r="2"/><circle cx="640" cy="405" r="2"/><circle cx="740" cy="405" r="2"/><circle cx="840" cy="405" r="2"/><circle cx="940" cy="405" r="2"/><circle cx="1040" cy="405" r="2"/>
-  </g>
-
-  <!-- trace path connecting select cells -->
-  <path id="traceLine"
-        d="M 140 370 L 240 335 L 340 370 L 440 405 L 540 370 L 640 335 L 740 370 L 840 405 L 940 370 L 1040 335"
-        stroke="url(#wave)" stroke-width="2" fill="none" opacity="0.55"
-        stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- highlighted nodes at each waypoint, pulsing on stagger -->
-  <g fill="url(#wave)" filter="url(#glow)">
-    <circle cx="140" cy="370" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="0s" repeatCount="indefinite"/></circle>
-    <circle cx="240" cy="335" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-0.3s" repeatCount="indefinite"/></circle>
-    <circle cx="340" cy="370" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-0.6s" repeatCount="indefinite"/></circle>
-    <circle cx="440" cy="405" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-0.9s" repeatCount="indefinite"/></circle>
-    <circle cx="540" cy="370" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-1.2s" repeatCount="indefinite"/></circle>
-    <circle cx="640" cy="335" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-1.5s" repeatCount="indefinite"/></circle>
-    <circle cx="740" cy="370" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="840" cy="405" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-2.1s" repeatCount="indefinite"/></circle>
-    <circle cx="940" cy="370" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-2.4s" repeatCount="indefinite"/></circle>
-    <circle cx="1040" cy="335" r="3.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" begin="-2.7s" repeatCount="indefinite"/></circle>
-  </g>
-
-  <!-- glowing pulse traveling along the trace -->
-  <circle r="6" fill="#ffffff" filter="url(#glow)">
-    <animateMotion dur="6s" repeatCount="indefinite" rotate="0">
-      <mpath href="#traceLine"/>
-    </animateMotion>
-  </circle>
 </svg>

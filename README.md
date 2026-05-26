@@ -1,8 +1,12 @@
-# TRACE
+<div align="center">
 
-**T**axonomy-**R**eferenced **A**BA **C**linical **E**xamples
+<img src="docs/assets/hero.svg" alt="TRACE — Taxonomy-Referenced ABA Clinical Examples" width="100%">
 
-[![arXiv](https://img.shields.io/badge/arXiv-2605.25038-b31b1b.svg)](https://arxiv.org/abs/2605.25038)
+<p>
+  <a href="https://arxiv.org/abs/2605.25038"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2605.25038-b31b1b.svg"></a>
+</p>
+
+</div>
 
 A 2,999-example synthetic instruction-tuning dataset for two clinical tasks in Applied Behavior Analysis: **teaching-program generation** and **behavioral session interpretation**. Every example is generated from a taxonomy grounded in the canonical ABA literature (Cooper, Heron, & Heward 2020; VB-MAPP; AFLS; BACB Ethics Code 2020) and carries full sampling provenance — the exact taxonomy cells that produced it.
 

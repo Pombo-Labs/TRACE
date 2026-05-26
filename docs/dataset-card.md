@@ -1,6 +1,8 @@
 ---
 pretty_name: "TRACE — Taxonomy-Referenced ABA Clinical Examples"
 license: cc-by-nc-4.0
+arxiv:
+  - 2605.25038
 language:
   - en
 size_categories:
@@ -342,9 +344,32 @@ The dataset version is `v1.0.0`; the matching git tag pins the exact configs and
 
 ## 8. Citation
 
-Please cite as:
+**Paper:**
 
-> Kahunla, F. (2026). *TRACE: Taxonomy-Grounded Synthetic Data for Teaching Program Generation and Session Interpretation in Applied Behavior Analysis.* Pombo Labs. https://github.com/Pombo-Labs/TRACE
+```bibtex
+@misc{kahunla2026tracetaxonomygroundedsyntheticdataset,
+  title         = {TRACE: A taxonomy-grounded synthetic dataset for teaching-program generation and session interpretation in Applied Behavior Analysis},
+  author        = {Festus Kahunla},
+  year          = {2026},
+  eprint        = {2605.25038},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2605.25038}
+}
+```
+
+**Dataset:**
+
+```bibtex
+@dataset{trace_2026,
+  title     = {TRACE: Taxonomy-Referenced ABA Clinical Examples},
+  author    = {Kahunla, Festus},
+  year      = {2026},
+  publisher = {Pombo Labs},
+  url       = {https://github.com/Pombo-Labs/TRACE},
+  note      = {Version 1.0.0}
+}
+```
 
 Machine-readable metadata: `CITATION.cff`.
 

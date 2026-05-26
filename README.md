@@ -2,6 +2,8 @@
 
 **T**axonomy-**R**eferenced **A**BA **C**linical **E**xamples
 
+[![arXiv](https://img.shields.io/badge/arXiv-2605.25038-b31b1b.svg)](https://arxiv.org/abs/2605.25038)
+
 A 2,999-example synthetic instruction-tuning dataset for two clinical tasks in Applied Behavior Analysis: **teaching-program generation** and **behavioral session interpretation**. Every example is generated from a taxonomy grounded in the canonical ABA literature (Cooper, Heron, & Heward 2020; VB-MAPP; AFLS; BACB Ethics Code 2020) and carries full sampling provenance — the exact taxonomy cells that produced it.
 
 | | |
@@ -122,6 +124,22 @@ Crisis-plan content is deliberately conservative: physical-intervention procedur
 
 ## Citation
 
+**Paper:**
+
+```bibtex
+@misc{kahunla2026tracetaxonomygroundedsyntheticdataset,
+  title         = {TRACE: A taxonomy-grounded synthetic dataset for teaching-program generation and session interpretation in Applied Behavior Analysis},
+  author        = {Festus Kahunla},
+  year          = {2026},
+  eprint        = {2605.25038},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2605.25038}
+}
+```
+
+**Dataset:**
+
 ```bibtex
 @dataset{trace_2026,
   title     = {TRACE: Taxonomy-Referenced ABA Clinical Examples},
@@ -129,8 +147,7 @@ Crisis-plan content is deliberately conservative: physical-intervention procedur
   year      = {2026},
   publisher = {Pombo Labs},
   url       = {https://github.com/Pombo-Labs/TRACE},
-  note      = {Taxonomy-Grounded Synthetic Data for Teaching Program Generation
-               and Session Interpretation in Applied Behavior Analysis}
+  note      = {Version 1.0.0}
 }
 ```
 
